@@ -1,0 +1,311 @@
+@import "tailwindcss";
+
+:root {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  /* Dark musical theme */
+  --bg: #0a0a0a;
+  --bg-elevated: #111111;
+  --bg-card: #171717;
+  --bg-card-hover: #1f1f1f;
+  --border: #262626;
+  --border-subtle: #1f1f1f;
+
+  --text-primary: #f5f5f5;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+
+  /* Yellow-green musical accents */
+  --accent: #a3e635;
+  --accent-dark: #84cc16;
+  --accent-warm: #facc15;
+  --accent-glow: rgba(163, 230, 53, 0.15);
+
+  --success: #22c55e;
+  --warning: #eab308;
+}
+
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--text-primary);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #3f3f46 #18181b;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-geist-sans);
+}
+
+/* Smooth scroll for nav links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Music-themed utility classes */
+.section {
+  scroll-margin-top: 80px;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1), 
+              border-color 0.2s cubic-bezier(0.23, 1, 0.32, 1),
+              background-color 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.card:hover {
+  background: var(--bg-card-hover);
+  border-color: #3f3f46;
+  transform: translateY(-1px);
+}
+
+.accent-text {
+  color: var(--accent);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #0a0a0a;
+  font-weight: 600;
+  transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.btn-primary:hover {
+  background: var(--accent-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 15px -3px var(--accent-glow);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  font-weight: 500;
+  transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-card);
+  border-color: var(--text-secondary);
+}
+
+.btn-ghost {
+  color: var(--text-secondary);
+  transition: color 0.2s ease;
+}
+
+.btn-ghost:hover {
+  color: var(--text-primary);
+}
+
+/* Language switcher */
+.lang-switch {
+  display: flex;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  padding: 2px;
+}
+
+.lang-btn {
+  padding: 4px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 9999px;
+  transition: all 0.15s ease;
+  color: var(--text-secondary);
+}
+
+.lang-btn.active {
+  background: var(--accent);
+  color: #0a0a0a;
+  font-weight: 600;
+}
+
+/* Rhythm visualizer styles */
+.rhythm-step {
+  transition: transform 0.1s ease, background-color 0.1s ease, box-shadow 0.1s ease;
+}
+
+.rhythm-step.active {
+  background: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+  transform: scale(1.08);
+}
+
+.rhythm-step.hit {
+  animation: drum-hit 120ms ease-out;
+}
+
+@keyframes drum-hit {
+  0% { transform: scale(1.08); }
+  50% { transform: scale(1.25); }
+  100% { transform: scale(1.08); }
+}
+
+/* Playhead */
+.playhead {
+  transition: left 80ms linear;
+}
+
+/* Pricing tabs */
+.pricing-tab {
+  position: relative;
+  padding: 10px 24px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: color 0.2s ease;
+  border-radius: 8px;
+}
+
+.pricing-tab.active {
+  color: var(--text-primary);
+}
+
+.tab-indicator {
+  position: absolute;
+  bottom: -1px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(0.23, 1.0, 0.32, 1);
+}
+
+/* FAQ Accordion */
+.faq-question {
+  transition: color 0.2s ease;
+}
+
+.faq-question:hover {
+  color: var(--accent);
+}
+
+.faq-answer {
+  overflow: hidden;
+}
+
+/* Modal */
+.modal {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+}
+
+.modal-backdrop {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+/* Feature icon wrapper */
+.feature-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--accent);
+  transition: all 0.2s ease;
+}
+
+.card:hover .feature-icon {
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-glow);
+}
+
+/* Step number */
+.step-number {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent);
+  color: #0a0a0a;
+  font-weight: 700;
+  font-size: 15px;
+  border-radius: 9999px;
+}
+
+/* Teacher live demo visual */
+.teacher-panel, .student-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+}
+
+.exercise-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.exercise-card.sent {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent-glow);
+}
+
+/* Waveform bars for hero */
+.waveform-bar {
+  background: var(--accent);
+  animation: waveform-pulse 1.2s ease-in-out infinite;
+}
+
+.waveform-bar:nth-child(2) { animation-delay: 0.15s; }
+.waveform-bar:nth-child(3) { animation-delay: 0.3s; }
+.waveform-bar:nth-child(4) { animation-delay: 0.1s; }
+.waveform-bar:nth-child(5) { animation-delay: 0.25s; }
+
+@keyframes waveform-pulse {
+  0%, 100% { height: 8px; }
+  50% { height: 42px; }
+}
+
+/* New Notation + Cube Grid Visualizer (Hero) */
+.staff-note {
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.5));
+}
+
+.rhythm-step {
+  transition: transform 0.08s ease, 
+              background-color 0.08s ease, 
+              border-color 0.08s ease,
+              box-shadow 0.08s ease;
+}
+
+.rhythm-step:hover {
+  transform: translateY(-1px);
+}
+
+.rhythm-step:active {
+  transform: scale(0.94);
+}
+
+/* Mobile nav */
+.mobile-nav {
+  background: var(--bg-elevated);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Nice focus states */
+button:focus-visible, a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Responsive typography helpers */
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: 2.75rem;
+    line-height: 1.05;
+  }
+}
