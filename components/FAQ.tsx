@@ -16,7 +16,7 @@ export default function FAQ() {
   return (
     <section id="faq" className="section max-w-4xl mx-auto px-6 py-20 md:py-24">
       <div className="text-center mb-12">
-        <div className="text-xs tracking-[3px] text-[#a3e635] mb-3 font-medium">QUESTIONS</div>
+        <div className="text-xs tracking-[3px] text-[#a3e635] mb-3 font-medium">{t.labels.questions}</div>
         <h2 className="text-5xl md:text-6xl tracking-[-2.2px] font-semibold mb-4">{t.faq.title}</h2>
         <p className="text-xl text-[#a1a1aa]">{t.faq.subtitle}</p>
       </div>

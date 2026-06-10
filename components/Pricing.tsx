@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useLanguage } from '@/lib/i18n';
 import { Check } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { buildAppUrl } from '@/lib/app-url';
 
 type Tab = 'students' | 'teachers';
 
@@ -13,16 +14,16 @@ export default function Pricing() {
 
   const handleTab = (tab: Tab) => setActiveTab(tab);
 
-  const scrollToContact = () => {
-    const el = document.getElementById('faq');
-    el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const handlePlanCta = (plan: 'free' | 'basic' | 'pro' | 'teacher_s' | 'teacher_m' | 'teacher_l') => {
+    const utmContent = `pricing_${plan}`;
+    window.location.href = buildAppUrl({ utm_content: utmContent });
   };
 
   return (
     <section id="pricing" className="section bg-[#111] border-y border-[#262626] py-20 md:py-24">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-11">
-          <div className="text-xs tracking-[3px] text-[#a3e635] mb-3 font-medium">PRICING</div>
+          <div className="text-xs tracking-[3px] text-[#a3e635] mb-3 font-medium">{t.pricing.label}</div>
           <h2 className="text-5xl md:text-6xl tracking-[-2.2px] font-semibold mb-4">{t.pricing.title}</h2>
           <p className="max-w-md mx-auto text-xl text-[#a1a1aa]">{t.pricing.subtitle}</p>
         </div>
@@ -72,7 +73,7 @@ export default function Pricing() {
                   ))}
                 </ul>
 
-                <button onClick={scrollToContact} className="btn-secondary w-full py-3 rounded-2xl text-sm font-medium">
+                <button onClick={() => handlePlanCta('free')} className="btn-secondary w-full py-3 rounded-2xl text-sm font-medium">
                   {t.pricing.students.free.cta}
                 </button>
               </div>
@@ -80,7 +81,7 @@ export default function Pricing() {
               {/* Basic - popular */}
               <div className="card rounded-3xl p-8 flex flex-col relative border-[#a3e635]/40">
                 {t.pricing.students.basic.popular && (
-                  <div className="absolute -top-3 right-8 text-xs font-medium tracking-widest bg-[#a3e635] text-black px-4 py-px rounded-full">MOST POPULAR</div>
+                  <div className="absolute -top-3 right-8 text-xs font-medium tracking-widest bg-[#a3e635] text-black px-4 py-px rounded-full">{t.pricing.mostPopular}</div>
                 )}
                 <div>
                   <div className="font-semibold text-2xl tracking-tight mb-1">{t.pricing.students.basic.name}</div>
@@ -98,7 +99,7 @@ export default function Pricing() {
                   ))}
                 </ul>
 
-                <button onClick={scrollToContact} className="btn-primary w-full py-3 rounded-2xl text-sm font-semibold">
+                <button onClick={() => handlePlanCta('basic')} className="btn-primary w-full py-3 rounded-2xl text-sm font-semibold">
                   {t.pricing.students.basic.cta}
                 </button>
               </div>
@@ -121,7 +122,7 @@ export default function Pricing() {
                   ))}
                 </ul>
 
-                <button onClick={scrollToContact} className="btn-secondary w-full py-3 rounded-2xl text-sm font-medium">
+                <button onClick={() => handlePlanCta('pro')} className="btn-secondary w-full py-3 rounded-2xl text-sm font-medium">
                   {t.pricing.students.pro.cta}
                 </button>
               </div>
@@ -155,7 +156,7 @@ export default function Pricing() {
                   ))}
                 </ul>
 
-                <button onClick={scrollToContact} className="btn-secondary w-full py-3 rounded-2xl text-sm font-medium">
+                <button onClick={() => handlePlanCta('teacher_s')} className="btn-secondary w-full py-3 rounded-2xl text-sm font-medium">
                   {t.pricing.teachers.s.cta}
                 </button>
               </div>
@@ -163,7 +164,7 @@ export default function Pricing() {
               {/* Teacher M - popular */}
               <div className="card rounded-3xl p-8 flex flex-col relative border-[#a3e635]/40">
                 {t.pricing.teachers.m.popular && (
-                  <div className="absolute -top-3 right-8 text-xs font-medium tracking-widest bg-[#a3e635] text-black px-4 py-px rounded-full">BEST VALUE</div>
+                  <div className="absolute -top-3 right-8 text-xs font-medium tracking-widest bg-[#a3e635] text-black px-4 py-px rounded-full">{t.pricing.bestValue}</div>
                 )}
                 <div>
                   <div className="font-semibold text-2xl tracking-tight mb-1">{t.pricing.teachers.m.name}</div>
@@ -181,7 +182,7 @@ export default function Pricing() {
                   ))}
                 </ul>
 
-                <button onClick={scrollToContact} className="btn-primary w-full py-3 rounded-2xl text-sm font-semibold">
+                <button onClick={() => handlePlanCta('teacher_m')} className="btn-primary w-full py-3 rounded-2xl text-sm font-semibold">
                   {t.pricing.teachers.m.cta}
                 </button>
               </div>
@@ -204,7 +205,7 @@ export default function Pricing() {
                   ))}
                 </ul>
 
-                <button onClick={scrollToContact} className="btn-secondary w-full py-3 rounded-2xl text-sm font-medium">
+                <button onClick={() => handlePlanCta('teacher_l')} className="btn-secondary w-full py-3 rounded-2xl text-sm font-medium">
                   {t.pricing.teachers.l.cta}
                 </button>
               </div>

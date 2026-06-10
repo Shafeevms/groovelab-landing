@@ -5,15 +5,21 @@ import { useLanguage } from '@/lib/i18n';
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import RhythmVisualizer from './RhythmVisualizer';
+import { buildAppUrl } from '@/lib/app-url';
 
 interface HeroProps {
-  onPrimaryCta: () => void;
   onDemoClick: () => void;
-  onTeachersClick: () => void;
 }
 
-export default function Hero({ onPrimaryCta, onDemoClick, onTeachersClick }: HeroProps) {
+export default function Hero({ onDemoClick }: HeroProps) {
   const { t } = useLanguage();
+
+  // Stub handler for solo CTA (scrolls to ForWhom section for now; real app navigation + UTM in Session 3).
+  // Do not attach auth here.
+  const scrollToForWhom = () => {
+    const el = document.getElementById('for-whom');
+    el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
   return (
     <section className="pt-20 pb-16 md:pt-24 md:pb-24 px-6 relative overflow-hidden">
@@ -36,7 +42,9 @@ export default function Hero({ onPrimaryCta, onDemoClick, onTeachersClick }: Her
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-5">
           <button
-            onClick={onPrimaryCta}
+            onClick={() => {
+              window.location.href = buildAppUrl({ utm_content: 'hero' });
+            }}
             className="btn-primary w-full sm:w-auto px-9 py-3.5 rounded-full text-base flex items-center justify-center gap-2 group"
           >
             {t.hero.ctaPrimary}
@@ -48,15 +56,17 @@ export default function Hero({ onPrimaryCta, onDemoClick, onTeachersClick }: Her
           >
             {t.hero.ctaSecondary}
           </button>
+          {/* Solo CTA — noticeable secondary style (not small gray text). Stub scrolls to ForWhom for solo value. */}
           <button
-            onClick={onTeachersClick}
-            className="text-sm font-medium px-5 py-3.5 text-[#a1a1aa] hover:text-white flex items-center gap-1.5 transition-colors"
+            onClick={scrollToForWhom}
+            className="btn-secondary w-full sm:w-auto px-8 py-3.5 rounded-full text-base"
           >
-            {t.hero.ctaTeachers} <ArrowRight size={15} />
+            {t.hero.ctaSolo}
           </button>
         </div>
 
         <p className="text-xs text-[#52525b] tracking-wide">{t.hero.trustNote}</p>
+        {/* TODO (founder): add real teacher co-author quote here later for social proof. Do not invent. */}
       </div>
 
       {/* Animated Rhythm Visualizer */}

@@ -17,10 +17,23 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "GrooveLab | Real-time Drum Education Platform",
-  description: "Professional tool for drummers and drum teachers. Create rhythms and exercises in a notation editor, use smart generator, practice rudiments, and teach live in real time. Students receive exercises instantly.",
+  metadataBase: new URL('https://groovelab.app'),
+  title: "GrooveLab — Drum practice & teaching tool",
+  description: "Assign drum homework in notation, run live lessons, and track student progress — powered by an endless exercise generator. Start free.",
   icons: {
     icon: "/favicon.ico",
+  },
+  openGraph: {
+    title: "GrooveLab — Drum practice & teaching tool",
+    description: "Assign drum homework in notation, run live lessons, and track student progress — powered by an endless exercise generator. Start free.",
+    url: "https://groovelab.app",
+    siteName: "GrooveLab",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "GrooveLab — Drum practice & teaching tool",
+    description: "Assign drum homework in notation, run live lessons, and track student progress — powered by an endless exercise generator. Start free.",
   },
 };
 

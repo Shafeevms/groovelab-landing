@@ -32,19 +32,17 @@ export default function Footer() {
             <div>
               <div className="font-medium mb-4 tracking-wide text-[#71717a]">{t.footer.resources}</div>
               <div className="space-y-[11px] text-[#a1a1aa]">
-                <a href="#" className="block hover:text-white transition-colors">{t.footer.links.blog}</a>
-                <a href="#" className="block hover:text-white transition-colors">{t.footer.links.docs}</a>
-                <a href="#" className="block hover:text-white transition-colors">{t.footer.links.support}</a>
+                <a href="mailto:support@groovelab.app" className="block hover:text-white transition-colors">{t.footer.links.support}</a>
               </div>
             </div>
             <div>
               <div className="font-medium mb-4 tracking-wide text-[#71717a]">{t.footer.company}</div>
               <div className="space-y-[11px] text-[#a1a1aa]">
-                <a href="#" className="block hover:text-white transition-colors">{t.footer.links.about}</a>
-                <a href="#" className="block hover:text-white transition-colors">{t.footer.links.careers}</a>
-                <a href="#" className="block hover:text-white transition-colors">{t.footer.links.contact}</a>
-                <a href="#" className="block hover:text-white transition-colors">{t.footer.links.privacy}</a>
-                <a href="#" className="block hover:text-white transition-colors">{t.footer.links.terms}</a>
+                <a href="mailto:support@groovelab.app" className="block hover:text-white transition-colors">{t.footer.links.contact}</a>
+                <a href="/privacy" target="_blank" rel="noopener noreferrer" className="block hover:text-white transition-colors">{t.footer.links.privacy}</a>
+                <a href="/terms" target="_blank" rel="noopener noreferrer" className="block hover:text-white transition-colors">{t.footer.links.terms}</a>
+                <a href="/refund" target="_blank" rel="noopener noreferrer" className="block hover:text-white transition-colors">{t.footer.links.refund}</a>
+                <a href="/pricing" target="_blank" rel="noopener noreferrer" className="block hover:text-white transition-colors">{t.footer.links.pricing}</a>
               </div>
             </div>
           </div>
@@ -52,7 +50,7 @@ export default function Footer() {
 
         <div className="mt-20 pt-7 border-t border-[#262626] text-xs text-[#52525b] flex flex-col sm:flex-row gap-y-2 items-center justify-between">
           <div>{t.footer.copyright}</div>
-          <div>Made for musicians who care about the craft.</div>
+          <div>{t.footer.madeFor}</div>
         </div>
       </div>
     </footer>

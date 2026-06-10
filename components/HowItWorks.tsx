@@ -11,7 +11,7 @@ export default function HowItWorks() {
     <section id="how-it-works" className="section bg-[#111] border-y border-[#262626] py-20 md:py-24">
       <div className="max-w-5xl mx-auto px-6">
         <div className="text-center mb-14">
-          <div className="text-xs tracking-[3px] text-[#a3e635] mb-3 font-medium">SIMPLE WORKFLOW</div>
+          <div className="text-xs tracking-[3px] text-[#a3e635] mb-3 font-medium">{t.labels.simpleWorkflow}</div>
           <h2 className="text-5xl md:text-6xl tracking-[-2.2px] font-semibold mb-4">{t.howItWorks.title}</h2>
           <p className="max-w-md mx-auto text-xl text-[#a1a1aa]">{t.howItWorks.subtitle}</p>
         </div>

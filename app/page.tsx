@@ -10,47 +10,22 @@ import HowItWorks from '@/components/HowItWorks';
 import ForTeachers from '@/components/ForTeachers';
 import Pricing from '@/components/Pricing';
 import FAQ from '@/components/FAQ';
+import FinalCta from '@/components/FinalCta';
 import Footer from '@/components/Footer';
-import AuthModal from '@/components/AuthModal';
 import DemoModal from '@/components/DemoModal';
 
 export default function GrooveLabLanding() {
-  const [authModalOpen, setAuthModalOpen] = useState(false);
-  const [authMode, setAuthMode] = useState<'login' | 'signup'>('login');
   const [demoModalOpen, setDemoModalOpen] = useState(false);
-
-  const openLogin = () => {
-    setAuthMode('login');
-    setAuthModalOpen(true);
-  };
-
-  const openSignup = () => {
-    setAuthMode('signup');
-    setAuthModalOpen(true);
-  };
 
   const openDemo = () => setDemoModalOpen(true);
 
-  const scrollToTeachers = () => {
-    const el = document.getElementById('for-teachers');
-    if (el) {
-      const top = el.getBoundingClientRect().top + window.scrollY - 70;
-      window.scrollTo({ top, behavior: 'smooth' });
-    }
-  };
-
   return (
     <div className="min-h-screen flex flex-col bg-[#0a0a0a] text-[#f5f5f5] overflow-x-hidden">
-      <Navbar 
-        onLoginClick={openLogin} 
-        onSignupClick={openSignup} 
-      />
+      <Navbar />
       
       <main>
         <Hero 
-          onPrimaryCta={openSignup} 
           onDemoClick={openDemo} 
-          onTeachersClick={scrollToTeachers}
         />
         
         <ForWhom />
@@ -61,21 +36,18 @@ export default function GrooveLabLanding() {
         
         <HowItWorks />
         
-        <ForTeachers onCtaClick={openSignup} />
+        <ForTeachers />
         
         <Pricing />
         
         <FAQ />
+
+        <FinalCta />
       </main>
 
       <Footer />
 
       {/* Modals */}
-      <AuthModal 
-        isOpen={authModalOpen} 
-        onClose={() => setAuthModalOpen(false)} 
-        initialMode={authMode} 
-      />
       <DemoModal 
         isOpen={demoModalOpen} 
         onClose={() => setDemoModalOpen(false)} 

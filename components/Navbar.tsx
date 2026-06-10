@@ -1,16 +1,13 @@
 "use client";
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { useLanguage } from '@/lib/i18n';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { buildAppUrl } from '@/lib/app-url';
 
-interface NavbarProps {
-  onLoginClick: () => void;
-  onSignupClick: () => void;
-}
-
-export default function Navbar({ onLoginClick, onSignupClick }: NavbarProps) {
+export default function Navbar() {
   const { t, language, setLanguage } = useLanguage();
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -44,14 +41,14 @@ export default function Navbar({ onLoginClick, onSignupClick }: NavbarProps) {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/95 backdrop-blur-lg border-b border-[#262626]">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-3 group">
+        <Link href="/" className="flex items-center gap-3 group">
           <div className="w-9 h-9 rounded-xl bg-[#a3e635] flex items-center justify-center">
             <span className="text-[#0a0a0a] font-bold text-xl tracking-[-1px]">GL</span>
           </div>
           <div className="font-semibold text-2xl tracking-[-0.5px] text-white group-hover:text-[#a3e635] transition-colors">
             GrooveLab
           </div>
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-9 text-sm font-medium">
@@ -81,16 +78,12 @@ export default function Navbar({ onLoginClick, onSignupClick }: NavbarProps) {
             ))}
           </div>
 
-          {/* Auth buttons desktop */}
+          {/* Auth buttons desktop — only "Начать" (accent/primary), "Войти" removed */}
           <div className="hidden md:flex items-center gap-3">
             <button
-              onClick={onLoginClick}
-              className="px-5 py-2 text-sm font-medium text-[#a1a1aa] hover:text-white transition-colors"
-            >
-              {t.nav.login}
-            </button>
-            <button
-              onClick={onSignupClick}
+              onClick={() => {
+                window.location.href = buildAppUrl({ utm_content: 'navbar_signup' });
+              }}
               className="btn-primary px-5 py-2 rounded-full text-sm"
             >
               {t.nav.getStarted}
@@ -153,16 +146,7 @@ export default function Navbar({ onLoginClick, onSignupClick }: NavbarProps) {
               <div className="flex flex-col gap-3 pt-2">
                 <button
                   onClick={() => {
-                    onLoginClick();
-                    setMobileOpen(false);
-                  }}
-                  className="w-full py-3 rounded-full border border-[#262626] text-[#a1a1aa] hover:text-white hover:border-[#3f3f46] transition-colors"
-                >
-                  {t.nav.login}
-                </button>
-                <button
-                  onClick={() => {
-                    onSignupClick();
+                    window.location.href = buildAppUrl({ utm_content: 'navbar_signup' });
                     setMobileOpen(false);
                   }}
                   className="btn-primary w-full py-3 rounded-full text-sm"

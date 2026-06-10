@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import { useLanguage } from '@/lib/i18n';
 import { motion } from 'framer-motion';
 
 const NUM_STEPS = 12;
@@ -33,6 +34,7 @@ const initialGrid: boolean[][] = [
 ];
 
 export default function RhythmVisualizer() {
+  const { t } = useLanguage();
   const [grid, setGrid] = useState<boolean[][]>(initialGrid);
 
   const toggleStep = (row: number, col: number) => {
@@ -86,7 +88,7 @@ export default function RhythmVisualizer() {
     <div className="w-full max-w-[680px] mx-auto">
       {/* Editor-like header */}
       <div className="flex items-center gap-3 mb-2 px-1">
-        <div className="text-[10px] uppercase tracking-[2.5px] text-[#a3e635] font-medium">NOTATION EDITOR</div>
+        <div className="text-[10px] uppercase tracking-[2.5px] text-[#a3e635] font-medium">{t.labels.notationEditor}</div>
         <div className="h-px flex-1 bg-[#262626]" />
       </div>
 
@@ -158,7 +160,7 @@ export default function RhythmVisualizer() {
         </div>
 
         <div className="mt-3 text-[10px] text-center text-[#52525b] tracking-wider">
-          Click the pads to write notes — just like in the editor
+          {t.labels.notationHint}
         </div>
       </div>
     </div>

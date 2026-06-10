@@ -23,6 +23,7 @@ export interface Translations {
     ctaPrimary: string;
     ctaSecondary: string;
     ctaTeachers: string;
+    ctaSolo: string;
     trustNote: string;
   };
   // For Whom
@@ -33,11 +34,13 @@ export interface Translations {
       title: string;
       description: string;
       points: string[];
+      cta: string;
     };
     teachers: {
       title: string;
       description: string;
       points: string[];
+      cta: string;
     };
   };
   // Main Advantage
@@ -56,6 +59,22 @@ export interface Translations {
       progress: string;
       sessions: string;
     };
+    // Demo panel (hardcoded labels, names, states moved to i18n for localization)
+    exerciseName: string;
+    exerciseMeta: string;
+    refCode: string;
+    accents: string;
+    level: string;
+    newBadge: string;
+    sending: string;
+    waitingForExercise: string;
+    receivingUpdate: string;
+    pushNote: string;
+    teacherName: string;
+    studentName: string;
+    online: string;
+    practicing: string;
+    screenshotAlt: string;
   };
   // Features
   features: {
@@ -149,6 +168,9 @@ export interface Translations {
         features: string[];
       };
     };
+    label: string;
+    mostPopular: string;
+    bestValue: string;
     limits: string;
     billedMonthly: string;
   };
@@ -168,6 +190,7 @@ export interface Translations {
     resources: string;
     company: string;
     copyright: string;
+    madeFor: string;
     links: {
       features: string;
       pricing: string;
@@ -180,6 +203,7 @@ export interface Translations {
       contact: string;
       privacy: string;
       terms: string;
+      refund: string;
     };
   };
   // Modals
@@ -210,6 +234,10 @@ export interface Translations {
       title: string;
       subtitle: string;
       close: string;
+      // Play button (disabled state) + video stub labels (Task 4B)
+      play: string;
+      overview: string;
+      description: string;
     };
   };
   // Misc
@@ -219,6 +247,22 @@ export interface Translations {
     studentsLabel: string;
     presets: string;
     unlimited: string;
+  };
+  // Section header labels (small uppercase badges) + RhythmVisualizer labels
+  labels: {
+    capabilities: string;
+    questions: string;
+    whoItsFor: string;
+    dedicatedToEducators: string;
+    simpleWorkflow: string;
+    notationEditor: string;
+    notationHint: string;
+  };
+  // Final CTA (after FAQ, last conversion push)
+  finalCta: {
+    heading: string;
+    sub: string;
+    cta: string;
   };
 }
 
@@ -234,20 +278,21 @@ const translations: Record<Language, Translations> = {
       getStarted: "Get started",
     },
     hero: {
-      badge: "For drummers & educators",
-      title: "The professional platform for real-time drum education",
-      subtitle: "Notation editor, smart rhythm generator, rudiments, advanced metronome with auto-tempo, and live sync between teachers and students. Create once — students receive instantly.",
-      ctaPrimary: "Start for free",
+      badge: "For drum teachers",
+      title: "Your students actually practice between lessons",
+      subtitle: "Assign drum homework in notation, run live lessons, and track progress — powered by an endless exercise generator.",
+      ctaPrimary: "Start free",
       ctaSecondary: "Watch demo",
       ctaTeachers: "For teachers",
-      trustNote: "Trusted by 2,400+ drummers and 180+ teachers worldwide",
+      ctaSolo: "Just practicing solo? →",
+      trustNote: "Early access — be among the first teachers on board.",
     },
     forWhom: {
-      title: "Built for drummers and teachers",
-      subtitle: "Whether you are learning or teaching — GrooveLab adapts to your workflow.",
+      title: "Built for drum teachers and students",
+      subtitle: "For drum teachers who want their students to actually practice between lessons — and for drummers practicing on their own.",
       students: {
         title: "For students",
-        description: "Practice with purpose. Master rudiments, build technique, and receive live feedback from your teacher.",
+        description: "Practice effectively on your own. Full rudiments & exercises library, smart generator, advanced metronome, and notation editor — free on the Free plan.",
         points: [
           "Interactive notation editor",
           "Full rudiments & exercises library",
@@ -255,6 +300,7 @@ const translations: Record<Language, Translations> = {
           "Advanced metronome with Auto Tempo Change",
           "Track your progress over time",
         ],
+        cta: "Start free",
       },
       teachers: {
         title: "For teachers",
@@ -263,9 +309,10 @@ const translations: Record<Language, Translations> = {
           "Real-time exercise delivery",
           "Student progress dashboard",
           "Live online lesson sessions",
-          "Unlimited presets & phrase permutations",
+          "Save your presets and organize lessons",
           "Professional tools for every lesson",
         ],
+        cta: "Start free",
       },
     },
     mainAdvantage: {
@@ -277,12 +324,28 @@ const translations: Record<Language, Translations> = {
       sendButton: "Send exercise",
       sentLabel: "Sent to student",
       receivedLabel: "Received instantly",
-      liveNote: "Changes appear on the student side in under 200ms",
+      liveNote: "Changes appear on the student side instantly",
       features: {
         instant: "Instant sync",
         progress: "Progress tracking",
         sessions: "Live sessions",
       },
+      // Demo panel strings (localized in 4B; technical BPM/bars kept as-is for animation)
+      exerciseName: "Double Stroke Roll — 16th notes",
+      exerciseMeta: "Rudiments • 110 BPM • 4 bars",
+      refCode: "R-07",
+      accents: "ACCENTS: 2 & 4",
+      level: "LEVEL: INTERMEDIATE",
+      newBadge: "NEW",
+      sending: "SENDING...",
+      waitingForExercise: "Waiting for new exercise from teacher...",
+      receivingUpdate: "Receiving update...",
+      pushNote: "Real-time push to all connected students",
+      teacherName: "Ms. Elena Vargas",
+      studentName: "Alex Rivera",
+      online: "Online",
+      practicing: "Practicing",
+      screenshotAlt: "GrooveLab live session — teacher view",
     },
     features: {
       title: "Everything you need to grow",
@@ -310,7 +373,7 @@ const translations: Record<Language, Translations> = {
         },
         {
           title: "Presets & Organization",
-          description: "Save unlimited presets (on paid plans), organize by student, lesson, or difficulty. Fast recall during live teaching.",
+          description: "Save your presets (on paid plans), organize by student, lesson, or difficulty. Fast recall during live teaching.",
         },
       ],
     },
@@ -356,15 +419,18 @@ const translations: Record<Language, Translations> = {
         },
         {
           title: "Live Online Sessions",
-          description: "Run synchronized group or 1-on-1 sessions. Everyone plays the same material at the same time with shared metronome control.",
+          description: "Run live lessons — group or 1-on-1 — in real time. Everyone plays the same material at the same time with shared metronome control.",
         },
         {
-          title: "Curriculum Management",
-          description: "Build structured learning paths. Assign rudiment series, technique blocks, and repertoire with clear milestones.",
+          title: "Homework & Progress",
+          description: "Assign homework and track student progress (done / not done). Clear status for each exercise.",
         },
       ],
     },
     pricing: {
+      label: "PRICING",
+      mostPopular: "MOST POPULAR",
+      bestValue: "BEST VALUE",
       title: "Simple, transparent pricing",
       subtitle: "Choose the plan that fits your goals. Upgrade or downgrade anytime.",
       tabs: {
@@ -377,46 +443,42 @@ const translations: Record<Language, Translations> = {
           price: "$0",
           period: "forever",
           description: "Perfect for exploring the platform",
-          cta: "Get started",
+          cta: "Start free",
           features: [
-            "Basic notation editor",
-            "Limited rudiments (12)",
-            "Basic metronome",
-            "5 presets",
-            "Community support",
+            "10 exercises per day",
+            "2 saved presets",
+            "All 40+ rudiments included",
+            "Metronome, notation & generator",
+            "Join live sessions",
           ],
         },
         basic: {
           name: "Basic",
           price: "$9",
-          period: "per month",
+          period: "",
           description: "For serious students",
-          cta: "Start 14-day trial",
+          cta: "Start free",
           popular: true,
           features: [
-            "Full notation editor",
-            "Complete rudiments library",
-            "All exercises & permutations",
-            "Advanced metronome + Auto Tempo",
-            "100 presets",
-            "Progress analytics",
-            "Priority support",
+            "Unlimited exercise generation",
+            "Save up to 10 presets",
+            "Advanced rudiments & exercises",
+            "Auto-generated exercises",
+            "Join live sessions",
           ],
         },
         pro: {
           name: "Pro",
           price: "$19",
-          period: "per month",
+          period: "",
           description: "Everything for dedicated practice",
-          cta: "Start 14-day trial",
+          cta: "Start free",
           features: [
             "Everything in Basic",
-            "Unlimited presets",
-            "Smart generator (advanced)",
-            "Custom exercise creation",
-            "Offline mode",
-            "Export to PDF / MusicXML",
-            "Early access to new features",
+            "Save up to 50 presets",
+            "Pro-level exercises",
+            "Advanced pattern generation",
+            "Host live sessions",
           ],
         },
       },
@@ -424,52 +486,52 @@ const translations: Record<Language, Translations> = {
         s: {
           name: "Teacher S",
           price: "$19",
-          period: "per month",
+          period: "",
           description: "Up to 5 students",
-          cta: "Start teaching",
+          cta: "Start free",
           features: [
-            "Real-time exercise delivery",
-            "Student progress dashboard",
-            "Live session tools",
-            "Unlimited presets",
-            "Full editor + generator",
-            "Email support",
+            "Everything in Pro",
+            "Up to 5 students",
+            "Assign homework",
+            "Host live lessons",
+            "Track student progress",
+            "Save up to 50 presets",
           ],
         },
         m: {
           name: "Teacher M",
           price: "$39",
-          period: "per month",
+          period: "",
           description: "Up to 30 students",
-          cta: "Start teaching",
+          cta: "Start free",
           popular: true,
           features: [
-            "Everything in Teacher S",
-            "Up to 30 active students",
-            "Group session mode",
-            "Curriculum builder",
-            "Detailed analytics per student",
-            "Priority support",
+            "Everything in Pro",
+            "Up to 30 students",
+            "Assign homework",
+            "Host live lessons",
+            "Track student progress",
+            "Save up to 50 presets",
           ],
         },
         l: {
           name: "Teacher L",
           price: "$79",
-          period: "per month",
+          period: "",
           description: "Unlimited students",
-          cta: "Start teaching",
+          cta: "Start free",
           features: [
-            "Everything in Teacher M",
+            "Everything in Pro",
             "Unlimited students",
-            "Multiple teacher accounts",
-            "School / studio management",
-            "API access (coming soon)",
-            "Dedicated onboarding",
+            "Assign homework",
+            "Host live lessons",
+            "Track student progress",
+            "Save up to 50 presets",
           ],
         },
       },
-      limits: "Limits apply to active students and saved presets.",
-      billedMonthly: "Billed monthly. Annual plans available with 2 months free.",
+      limits: "Start free — 10 exercises per day, no card required.",
+      billedMonthly: "Billed monthly in USD.",
     },
     faq: {
       title: "Frequently asked questions",
@@ -481,19 +543,15 @@ const translations: Record<Language, Translations> = {
         },
         {
           question: "How does real-time delivery actually work?",
-          answer: "When a teacher sends or edits an exercise, it is pushed instantly through our real-time infrastructure. The student’s app updates in under 200 milliseconds — no refresh needed.",
+          answer: "When a teacher sends or edits an exercise, it is pushed instantly through our real-time infrastructure. The student’s app updates in real time — no refresh needed.",
         },
         {
           question: "Do I need special hardware or an app?",
-          answer: "GrooveLab works beautifully in the browser on desktop, tablet, and mobile. We also offer native desktop apps for macOS and Windows with offline support on paid plans.",
+          answer: "GrooveLab runs in your browser on any device — no installation required.",
         },
         {
           question: "Can I cancel or change plans anytime?",
           answer: "Yes. You can upgrade, downgrade, or cancel at any time from your account settings. Your data remains safe, and you keep access until the end of the paid period.",
-        },
-        {
-          question: "Is there a discount for annual billing?",
-          answer: "Yes — annual plans for both students and teachers receive two months free (effectively ~16.7% off). Contact us if you need custom school or studio licensing.",
         },
         {
           question: "What languages are supported?",
@@ -507,6 +565,7 @@ const translations: Record<Language, Translations> = {
       resources: "Resources",
       company: "Company",
       copyright: "© GrooveLab. All rights reserved.",
+      madeFor: "Made for musicians who care about the craft.",
       links: {
         features: "Features",
         pricing: "Pricing",
@@ -519,6 +578,7 @@ const translations: Record<Language, Translations> = {
         contact: "Contact",
         privacy: "Privacy",
         terms: "Terms",
+        refund: "Refund Policy",
       },
     },
     modal: {
@@ -548,14 +608,32 @@ const translations: Record<Language, Translations> = {
         title: "See GrooveLab in action",
         subtitle: "Watch how teachers and students stay perfectly in sync.",
         close: "Close",
+        // 4B: disabled Play + localized stub
+        play: "Demo coming soon",
+        overview: "PRODUCT OVERVIEW",
+        description: "See how teachers deliver exercises to students, control a shared metronome during live sessions, and track student progress (done / not done).",
       },
     },
     misc: {
       or: "or",
-      perMonth: "/ month",
+      perMonth: "/mo",
       studentsLabel: "students",
       presets: "presets",
       unlimited: "Unlimited",
+    },
+    labels: {
+      capabilities: "CAPABILITIES",
+      questions: "QUESTIONS",
+      whoItsFor: "WHO IT'S FOR",
+      dedicatedToEducators: "DEDICATED TO EDUCATORS",
+      simpleWorkflow: "SIMPLE WORKFLOW",
+      notationEditor: "NOTATION EDITOR",
+      notationHint: "Click the pads to write notes — just like in the editor",
+    },
+    finalCta: {
+      heading: "Give your students a reason to practice",
+      sub: "Assign homework in notation, run live lessons, and track progress. Start free — no card required.",
+      cta: "Start free",
     },
   },
 
@@ -570,20 +648,21 @@ const translations: Record<Language, Translations> = {
       getStarted: "Начать",
     },
     hero: {
-      badge: "Для барабанщиков и педагогов",
-      title: "Профессиональная платформа для обучения ударным в реальном времени",
-      subtitle: "Нотный редактор, умный генератор ритмов, рудименты, продвинутый метроном с автосменой темпа и мгновенная синхронизация между учителем и учеником. Создал — ученик сразу видит.",
+      badge: "Для преподавателей барабанов",
+      title: "Ваши ученики реально занимаются между уроками",
+      subtitle: "Задавайте ДЗ в нотации, ведите live-уроки и отслеживайте прогресс — на базе бесконечного генератора упражнений.",
       ctaPrimary: "Начать бесплатно",
       ctaSecondary: "Смотреть демо",
       ctaTeachers: "Для учителей",
-      trustNote: "Более 2400 барабанщиков и 180 преподавателей уже с нами",
+      ctaSolo: "Занимаетесь самостоятельно? →",
+      trustNote: "Ранний доступ — будьте среди первых преподавателей.",
     },
     forWhom: {
-      title: "Создано для барабанщиков и преподавателей",
-      subtitle: "Учишься ты или преподаёшь — GrooveLab подстраивается под твой процесс.",
+      title: "Создано для преподавателей и учеников",
+      subtitle: "Для преподавателей, которые хотят, чтобы ученики реально занимались между уроками — и для тех, кто занимается самостоятельно.",
       students: {
         title: "Для учеников",
-        description: "Практикуйся осознанно. Осваивай рудименты, развивай технику и получай живую обратную связь от преподавателя.",
+        description: "Занимайтесь эффективно самостоятельно. Полная библиотека рудиментов и упражнений, умный генератор, продвинутый метроном и нотный редактор — бесплатно на тарифе Free.",
         points: [
           "Интерактивный нотный редактор",
           "Полная библиотека рудиментов и упражнений",
@@ -591,6 +670,7 @@ const translations: Record<Language, Translations> = {
           "Продвинутый метроном с автосменой темпа",
           "Отслеживание прогресса во времени",
         ],
+        cta: "Начать бесплатно",
       },
       teachers: {
         title: "Для преподавателей",
@@ -599,9 +679,10 @@ const translations: Record<Language, Translations> = {
           "Мгновенная доставка упражнений",
           "Дашборд прогресса учеников",
           "Инструменты для живых онлайн-уроков",
-          "Безлимитные пресеты и пермутации",
+          "Сохраняйте свои пресеты и организуйте уроки",
           "Профессиональный инструмент для каждого занятия",
         ],
+        cta: "Начать бесплатно",
       },
     },
     mainAdvantage: {
@@ -613,12 +694,28 @@ const translations: Record<Language, Translations> = {
       sendButton: "Отправить упражнение",
       sentLabel: "Отправлено ученику",
       receivedLabel: "Получено мгновенно",
-      liveNote: "Изменения появляются на стороне ученика менее чем за 200 мс",
+      liveNote: "Изменения появляются на стороне ученика мгновенно",
       features: {
         instant: "Мгновенная синхронизация",
         progress: "Отслеживание прогресса",
         sessions: "Живые сессии",
       },
+      // Demo panel strings (локализовано в 4B)
+      exerciseName: "Двойной рулл — шестнадцатые ноты",
+      exerciseMeta: "Рудименты • 110 BPM • 4 такта",
+      refCode: "R-07",
+      accents: "АКЦЕНТЫ: 2 и 4",
+      level: "УРОВЕНЬ: СРЕДНИЙ",
+      newBadge: "НОВОЕ",
+      sending: "ОТПРАВКА...",
+      waitingForExercise: "Ожидание нового упражнения от преподавателя...",
+      receivingUpdate: "Получение обновления...",
+      pushNote: "Мгновенная отправка всем подключённым ученикам",
+      teacherName: "Ms. Elena Vargas",
+      studentName: "Alex Rivera",
+      online: "В сети",
+      practicing: "Занимается",
+      screenshotAlt: "GrooveLab live-сессия — вид преподавателя",
     },
     features: {
       title: "Всё необходимое для роста",
@@ -646,7 +743,7 @@ const translations: Record<Language, Translations> = {
         },
         {
           title: "Пресеты и организация",
-          description: "Сохраняйте безлимитные пресеты (на платных тарифах), организуйте по ученикам, урокам или уровню сложности. Быстрый доступ во время урока.",
+          description: "Сохраняйте свои пресеты (на платных тарифах), организуйте по ученикам, урокам или уровню сложности. Быстрый доступ во время урока.",
         },
       ],
     },
@@ -684,7 +781,7 @@ const translations: Record<Language, Translations> = {
       capabilities: [
         {
           title: "Мгновенная отправка упражнений",
-          description: "Редактируй упражнение прямо во время урока — все подключённые ученики получают обновление мгновенно. Идеально для онлайн и оффлайн занятий.",
+          description: "Редактируй упражнение прямо во время урока — все подключённые ученики получают обновление мгновенно. Идеально для онлайн-уроков и частных занятий.",
         },
         {
           title: "Отслеживание прогресса учеников",
@@ -692,15 +789,18 @@ const translations: Record<Language, Translations> = {
         },
         {
           title: "Живые онлайн-сессии",
-          description: "Проводите синхронизированные групповые или индивидуальные занятия. Все играют один материал одновременно под общим метрономом.",
+          description: "Проводите live-уроки — для группы или один на один — в реальном времени. Все играют один материал одновременно под общим метрономом.",
         },
         {
-          title: "Управление учебной программой",
-          description: "Создавай структурированные траектории обучения. Назначай серии рудиментов, блоки техники и репертуар с чёткими вехами.",
+          title: "Домашние задания и прогресс",
+          description: "Задавайте ДЗ и отслеживайте прогресс учеников (сделано / не сделано). Понятный статус по каждому упражнению.",
         },
       ],
     },
     pricing: {
+      label: "ТАРИФЫ",
+      mostPopular: "ПОПУЛЯРНЫЙ ВЫБОР",
+      bestValue: "ЛУЧШАЯ ЦЕНА",
       title: "Простые и прозрачные тарифы",
       subtitle: "Выбери план под свои задачи. Меняй тариф в любой момент.",
       tabs: {
@@ -710,102 +810,98 @@ const translations: Record<Language, Translations> = {
       students: {
         free: {
           name: "Бесплатно",
-          price: "0 ₽",
+          price: "0",
           period: "навсегда",
           description: "Отлично для знакомства с платформой",
-          cta: "Начать",
+          cta: "Начать бесплатно",
           features: [
-            "Базовый нотный редактор",
-            "Ограниченная библиотека рудиментов (12)",
-            "Базовый метроном",
-            "5 пресетов",
-            "Поддержка сообщества",
+            "10 упражнений в день",
+            "2 сохранённых пресета",
+            "Все 40+ рудиментов включены",
+            "Метроном, нотация и генератор",
+            "Присоединяться к живым сессиям",
           ],
         },
         basic: {
           name: "Basic",
-          price: "790 ₽",
-          period: "в месяц",
+          price: "9",
+          period: "",
           description: "Для серьёзных учеников",
-          cta: "Начать 14-дневный пробный период",
+          cta: "Начать бесплатно",
           popular: true,
           features: [
-            "Полный нотный редактор",
-            "Полная библиотека рудиментов",
-            "Все упражнения и пермутации",
-            "Продвинутый метроном + Auto Tempo",
-            "100 пресетов",
-            "Аналитика прогресса",
-            "Приоритетная поддержка",
+            "Безлимитная генерация упражнений",
+            "Сохранять до 10 пресетов",
+            "Продвинутые рудименты и упражнения",
+            "Автогенерируемые упражнения",
+            "Присоединяться к живым сессиям",
           ],
         },
         pro: {
           name: "Pro",
-          price: "1690 ₽",
-          period: "в месяц",
+          price: "19",
+          period: "",
           description: "Всё для серьёзной практики",
-          cta: "Начать 14-дневный пробный период",
+          cta: "Начать бесплатно",
           features: [
             "Всё из Basic",
-            "Безлимитные пресеты",
-            "Умный генератор (расширенный)",
-            "Создание собственных упражнений",
-            "Оффлайн-режим",
-            "Экспорт в PDF / MusicXML",
-            "Ранний доступ к новым функциям",
+            "Сохранять до 50 пресетов",
+            "Упражнения уровня Pro",
+            "Продвинутая генерация паттернов",
+            "Проводить живые сессии",
           ],
         },
       },
       teachers: {
         s: {
           name: "Teacher S",
-          price: "1690 ₽",
-          period: "в месяц",
+          price: "19",
+          period: "",
           description: "До 5 учеников",
-          cta: "Начать преподавать",
+          cta: "Начать бесплатно",
           features: [
-            "Мгновенная отправка упражнений",
-            "Дашборд прогресса учеников",
-            "Инструменты живых сессий",
-            "Безлимитные пресеты",
-            "Полный редактор + генератор",
-            "Поддержка по email",
+            "Всё из Pro",
+            "До 5 учеников",
+            "Назначать домашние задания",
+            "Проводить живые уроки",
+            "Просматривать прогресс учеников",
+            "Сохранять до 50 пресетов",
           ],
         },
         m: {
           name: "Teacher M",
-          price: "3490 ₽",
-          period: "в месяц",
+          price: "39",
+          period: "",
           description: "До 30 учеников",
-          cta: "Начать преподавать",
+          cta: "Начать бесплатно",
           popular: true,
           features: [
-            "Всё из Teacher S",
-            "До 30 активных учеников",
-            "Режим групповых сессий",
-            "Конструктор учебных программ",
-            "Детальная аналитика по каждому ученику",
-            "Приоритетная поддержка",
+            "Всё из Pro",
+            "До 30 учеников",
+            "Назначать домашние задания",
+            "Проводить живые уроки",
+            "Просматривать прогресс учеников",
+            "Сохранять до 50 пресетов",
           ],
         },
         l: {
           name: "Teacher L",
-          price: "6990 ₽",
-          period: "в месяц",
+          price: "79",
+          period: "",
           description: "Без ограничения учеников",
-          cta: "Начать преподавать",
+          cta: "Начать бесплатно",
           features: [
-            "Всё из Teacher M",
+            "Всё из Pro",
             "Неограниченное число учеников",
-            "Несколько аккаунтов преподавателей",
-            "Управление школой / студией",
-            "Доступ к API (скоро)",
-            "Персональное онбординг",
+            "Назначать домашние задания",
+            "Проводить живые уроки",
+            "Просматривать прогресс учеников",
+            "Сохранять до 50 пресетов",
           ],
         },
       },
-      limits: "Лимиты распространяются на активных учеников и сохранённые пресеты.",
-      billedMonthly: "Оплата ежемесячно. При годовой оплате — 2 месяца бесплатно.",
+      limits: "Начните бесплатно — 10 упражнений в день, карта не требуется.",
+      billedMonthly: "Оплата ежемесячно в USD.",
     },
     faq: {
       title: "Часто задаваемые вопросы",
@@ -817,19 +913,15 @@ const translations: Record<Language, Translations> = {
         },
         {
           question: "Как именно работает мгновенная отправка упражнений?",
-          answer: "Когда преподаватель отправляет или редактирует упражнение, оно мгновенно передаётся через нашу real-time инфраструктуру. Приложение ученика обновляется менее чем за 200 миллисекунд — без перезагрузки.",
+          answer: "Когда преподаватель отправляет или редактирует упражнение, оно мгновенно передаётся через нашу real-time инфраструктуру. Приложение ученика обновляется в реальном времени — без перезагрузки.",
         },
         {
           question: "Нужно ли специальное оборудование или приложение?",
-          answer: "GrooveLab отлично работает в браузере на компьютере, планшете и смартфоне. Также есть нативные приложения для macOS и Windows с оффлайн-режимом на платных тарифах.",
+          answer: "GrooveLab работает в браузере на любом устройстве — без установки.",
         },
         {
           question: "Можно ли отменить или сменить тариф в любой момент?",
           answer: "Да. Ты можешь повысить, понизить или отменить подписку в любой момент в настройках аккаунта. Данные сохраняются, доступ остаётся до конца оплаченного периода.",
-        },
-        {
-          question: "Есть ли скидка при оплате за год?",
-          answer: "Да — при годовой оплате и для учеников, и для преподавателей даётся два месяца бесплатно (экономия ~16,7%). Напиши нам, если нужна лицензия для школы или студии.",
         },
         {
           question: "Какие языки поддерживаются?",
@@ -843,6 +935,7 @@ const translations: Record<Language, Translations> = {
       resources: "Ресурсы",
       company: "Компания",
       copyright: "© GrooveLab. Все права защищены.",
+      madeFor: "Сделано для музыкантов, которым важно мастерство.",
       links: {
         features: "Возможности",
         pricing: "Тарифы",
@@ -855,6 +948,7 @@ const translations: Record<Language, Translations> = {
         contact: "Контакты",
         privacy: "Конфиденциальность",
         terms: "Условия",
+        refund: "Политика возвратов",
       },
     },
     modal: {
@@ -884,14 +978,32 @@ const translations: Record<Language, Translations> = {
         title: "Посмотри GrooveLab в действии",
         subtitle: "Узнай, как учителя и ученики остаются идеально синхронизированными.",
         close: "Закрыть",
+        // 4B: disabled Play + локализованная заглушка
+        play: "Демо скоро",
+        overview: "ОБЗОР ПРОДУКТА",
+        description: "Посмотрите, как преподаватели мгновенно доставляют упражнения ученикам, управляют общим метрономом во время живых сессий и отслеживают прогресс учеников (сделано / не сделано).",
       },
     },
     misc: {
       or: "или",
-      perMonth: "/ мес",
+      perMonth: "/мес",
       studentsLabel: "учеников",
       presets: "пресетов",
       unlimited: "Безлимитно",
+    },
+    labels: {
+      capabilities: "ВОЗМОЖНОСТИ",
+      questions: "ВОПРОСЫ",
+      whoItsFor: "ДЛЯ КОГО",
+      dedicatedToEducators: "ДЛЯ ПРЕПОДАВАТЕЛЕЙ",
+      simpleWorkflow: "КАК ЭТО РАБОТАЕТ",
+      notationEditor: "НОТНЫЙ РЕДАКТОР",
+      notationHint: "Нажимайте на пэды, чтобы записывать ноты — как в редакторе",
+    },
+    finalCta: {
+      heading: "Дайте ученикам повод заниматься",
+      sub: "Задавайте ДЗ в нотации, ведите live-уроки и отслеживайте прогресс. Начните бесплатно — без карты.",
+      cta: "Начать бесплатно",
     },
   },
 
@@ -906,20 +1018,21 @@ const translations: Record<Language, Translations> = {
       getStarted: "Comenzar",
     },
     hero: {
-      badge: "Para bateristas y educadores",
-      title: "La plataforma profesional para la educación de batería en tiempo real",
-      subtitle: "Editor de notación, generador inteligente de ritmos, rudimentos, metrónomo avanzado con cambio automático de tempo y sincronización en vivo entre profesores y alumnos. Crea una vez — los alumnos lo ven al instante.",
-      ctaPrimary: "Comenzar gratis",
+      badge: "Para profesores de batería",
+      title: "Tus alumnos practican de verdad entre clases",
+      subtitle: "Asigna tareas en notación, da clases en vivo y sigue el progreso — con un generador infinito de ejercicios.",
+      ctaPrimary: "Empieza gratis",
       ctaSecondary: "Ver demo",
       ctaTeachers: "Para profesores",
-      trustNote: "Con la confianza de más de 2.400 bateristas y 180 profesores en todo el mundo",
+      ctaSolo: "¿Practicas en solitario? →",
+      trustNote: "Acceso anticipado — sé de los primeros profesores.",
     },
     forWhom: {
-      title: "Creado para bateristas y profesores",
-      subtitle: "Ya sea que estés aprendiendo o enseñando, GrooveLab se adapta a tu flujo de trabajo.",
+      title: "Creado para profesores y estudiantes",
+      subtitle: "Para profesores de batería que quieren que sus alumnos practiquen de verdad entre clases — y para bateristas que practican solos.",
       students: {
         title: "Para estudiantes",
-        description: "Practica con propósito. Domina los rudimentos, desarrolla tu técnica y recibe retroalimentación en vivo de tu profesor.",
+        description: "Practica de forma efectiva por tu cuenta. Biblioteca completa de rudimentos y ejercicios, generador inteligente, metrónomo avanzado y editor de notación — gratis en el plan Free.",
         points: [
           "Editor de notación interactivo",
           "Biblioteca completa de rudimentos y ejercicios",
@@ -927,6 +1040,7 @@ const translations: Record<Language, Translations> = {
           "Metrónomo avanzado con Auto Tempo Change",
           "Seguimiento de tu progreso a lo largo del tiempo",
         ],
+        cta: "Empieza gratis",
       },
       teachers: {
         title: "Para profesores",
@@ -935,9 +1049,10 @@ const translations: Record<Language, Translations> = {
           "Entrega de ejercicios en tiempo real",
           "Panel de progreso de estudiantes",
           "Herramientas para lecciones en vivo en línea",
-          "Presets ilimitados y permutaciones",
+          "Guarda tus presets y organiza las lecciones",
           "Herramientas profesionales para cada clase",
         ],
+        cta: "Empieza gratis",
       },
     },
     mainAdvantage: {
@@ -949,12 +1064,28 @@ const translations: Record<Language, Translations> = {
       sendButton: "Enviar ejercicio",
       sentLabel: "Enviado al alumno",
       receivedLabel: "Recibido al instante",
-      liveNote: "Los cambios aparecen en el lado del alumno en menos de 200 ms",
+      liveNote: "Los cambios aparecen en el lado del alumno al instante",
       features: {
         instant: "Sincronización instantánea",
         progress: "Seguimiento de progreso",
         sessions: "Sesiones en vivo",
       },
+      // Demo panel strings (localizado en 4B)
+      exerciseName: "Double Stroke Roll — semicorcheas",
+      exerciseMeta: "Rudimentos • 110 BPM • 4 compases",
+      refCode: "R-07",
+      accents: "ACENTOS: 2 y 4",
+      level: "NIVEL: INTERMEDIO",
+      newBadge: "NUEVO",
+      sending: "ENVIANDO...",
+      waitingForExercise: "Esperando nuevo ejercicio del profesor...",
+      receivingUpdate: "Recibiendo actualización...",
+      pushNote: "Envío en tiempo real a todos los alumnos conectados",
+      teacherName: "Ms. Elena Vargas",
+      studentName: "Alex Rivera",
+      online: "En línea",
+      practicing: "Practicando",
+      screenshotAlt: "GrooveLab sesión en vivo — vista del profesor",
     },
     features: {
       title: "Todo lo que necesitas para crecer",
@@ -982,7 +1113,7 @@ const translations: Record<Language, Translations> = {
         },
         {
           title: "Presets y organización",
-          description: "Guarda presets ilimitados (en planes de pago), organiza por alumno, lección o dificultad. Recuperación rápida durante la enseñanza en vivo.",
+          description: "Guarda tus presets (en planes de pago), organiza por alumno, lección o dificultad. Recuperación rápida durante la enseñanza en vivo.",
         },
       ],
     },
@@ -1028,15 +1159,18 @@ const translations: Record<Language, Translations> = {
         },
         {
           title: "Sesiones en línea en vivo",
-          description: "Dirige sesiones sincronizadas grupales o individuales. Todos tocan el mismo material al mismo tiempo con control compartido del metrónomo.",
+          description: "Imparte clases en vivo — en grupo o individuales — en tiempo real. Todos tocan el mismo material al mismo tiempo con control compartido del metrónomo.",
         },
         {
-          title: "Gestión curricular",
-          description: "Construye trayectorias de aprendizaje estructuradas. Asigna series de rudimentos, bloques de técnica y repertorio con hitos claros.",
+          title: "Tareas y progreso",
+          description: "Asigna tareas y sigue el progreso de los alumnos (hecho / no hecho). Estado claro para cada ejercicio.",
         },
       ],
     },
     pricing: {
+      label: "PRECIOS",
+      mostPopular: "MÁS POPULAR",
+      bestValue: "MEJOR VALOR",
       title: "Precios simples y transparentes",
       subtitle: "Elige el plan que se adapte a tus objetivos. Cambia de plan en cualquier momento.",
       tabs: {
@@ -1049,46 +1183,42 @@ const translations: Record<Language, Translations> = {
           price: "$0",
           period: "para siempre",
           description: "Perfecto para explorar la plataforma",
-          cta: "Comenzar",
+          cta: "Empieza gratis",
           features: [
-            "Editor de notación básico",
-            "Rudimentos limitados (12)",
-            "Metrónomo básico",
-            "5 presets",
-            "Soporte de la comunidad",
+            "10 ejercicios por día",
+            "2 presets guardados",
+            "Todos los rudimentos 40+ incluidos",
+            "Metrónomo, notación y generador",
+            "Unirse a sesiones en vivo",
           ],
         },
         basic: {
           name: "Basic",
           price: "$9",
-          period: "por mes",
+          period: "",
           description: "Para estudiantes serios",
-          cta: "Iniciar prueba de 14 días",
+          cta: "Empieza gratis",
           popular: true,
           features: [
-            "Editor de notación completo",
-            "Biblioteca completa de rudimentos",
-            "Todos los ejercicios y permutaciones",
-            "Metrónomo avanzado + Auto Tempo",
-            "100 presets",
-            "Analíticas de progreso",
-            "Soporte prioritario",
+            "Generación ilimitada de ejercicios",
+            "Guardar hasta 10 presets",
+            "Rudimentos y ejercicios avanzados",
+            "Ejercicios autogenerados",
+            "Unirse a sesiones en vivo",
           ],
         },
         pro: {
           name: "Pro",
           price: "$19",
-          period: "por mes",
+          period: "",
           description: "Todo para práctica dedicada",
-          cta: "Iniciar prueba de 14 días",
+          cta: "Empieza gratis",
           features: [
             "Todo lo de Basic",
-            "Presets ilimitados",
-            "Generador inteligente (avanzado)",
-            "Creación de ejercicios personalizados",
-            "Modo sin conexión",
-            "Exportar a PDF / MusicXML",
-            "Acceso anticipado a nuevas funciones",
+            "Guardar hasta 50 presets",
+            "Ejercicios de nivel Pro",
+            "Generación avanzada de patrones",
+            "Organizar sesiones en vivo",
           ],
         },
       },
@@ -1096,52 +1226,52 @@ const translations: Record<Language, Translations> = {
         s: {
           name: "Teacher S",
           price: "$19",
-          period: "por mes",
+          period: "",
           description: "Hasta 5 alumnos",
-          cta: "Comenzar a enseñar",
+          cta: "Empieza gratis",
           features: [
-            "Entrega de ejercicios en tiempo real",
-            "Panel de progreso de alumnos",
-            "Herramientas de sesiones en vivo",
-            "Presets ilimitados",
-            "Editor completo + generador",
-            "Soporte por email",
+            "Todo lo de Pro",
+            "Hasta 5 alumnos",
+            "Asignar tareas",
+            "Organizar lecciones en vivo",
+            "Seguir el progreso de los alumnos",
+            "Guardar hasta 50 presets",
           ],
         },
         m: {
           name: "Teacher M",
           price: "$39",
-          period: "por mes",
+          period: "",
           description: "Hasta 30 alumnos",
-          cta: "Comenzar a enseñar",
+          cta: "Empieza gratis",
           popular: true,
           features: [
-            "Todo lo de Teacher S",
-            "Hasta 30 alumnos activos",
-            "Modo de sesiones grupales",
-            "Constructor de currículo",
-            "Analíticas detalladas por alumno",
-            "Soporte prioritario",
+            "Todo lo de Pro",
+            "Hasta 30 alumnos",
+            "Asignar tareas",
+            "Organizar lecciones en vivo",
+            "Seguir el progreso de los alumnos",
+            "Guardar hasta 50 presets",
           ],
         },
         l: {
           name: "Teacher L",
           price: "$79",
-          period: "por mes",
+          period: "",
           description: "Alumnos ilimitados",
-          cta: "Comenzar a enseñar",
+          cta: "Empieza gratis",
           features: [
-            "Todo lo de Teacher M",
+            "Todo lo de Pro",
             "Alumnos ilimitados",
-            "Múltiples cuentas de profesores",
-            "Gestión de escuela / estudio",
-            "Acceso a API (próximamente)",
-            "Onboarding dedicado",
+            "Asignar tareas",
+            "Organizar lecciones en vivo",
+            "Seguir el progreso de los alumnos",
+            "Guardar hasta 50 presets",
           ],
         },
       },
-      limits: "Los límites se aplican a alumnos activos y presets guardados.",
-      billedMonthly: "Facturado mensualmente. Planes anuales disponibles con 2 meses gratis.",
+      limits: "Comienza gratis — 10 ejercicios por día, no se requiere tarjeta.",
+      billedMonthly: "Facturado mensualmente en USD.",
     },
     faq: {
       title: "Preguntas frecuentes",
@@ -1153,19 +1283,15 @@ const translations: Record<Language, Translations> = {
         },
         {
           question: "¿Cómo funciona realmente la entrega en tiempo real?",
-          answer: "Cuando un profesor envía o edita un ejercicio, se envía instantáneamente a través de nuestra infraestructura en tiempo real. La aplicación del alumno se actualiza en menos de 200 milisegundos — sin necesidad de recargar.",
+          answer: "Cuando un profesor envía o edita un ejercicio, se envía instantáneamente a través de nuestra infraestructura en tiempo real. La aplicación del alumno se actualiza en tiempo real — sin necesidad de recargar.",
         },
         {
           question: "¿Necesito hardware especial o una aplicación?",
-          answer: "GrooveLab funciona excelente en el navegador en escritorio, tablet y móvil. También ofrecemos aplicaciones nativas de escritorio para macOS y Windows con soporte sin conexión en planes de pago.",
+          answer: "GrooveLab funciona en tu navegador en cualquier dispositivo — sin necesidad de instalar nada.",
         },
         {
           question: "¿Puedo cancelar o cambiar de plan en cualquier momento?",
           answer: "Sí. Puedes actualizar, degradar o cancelar en cualquier momento desde la configuración de tu cuenta. Tus datos permanecen seguros y mantienes el acceso hasta el final del período pagado.",
-        },
-        {
-          question: "¿Hay descuento por facturación anual?",
-          answer: "Sí — los planes anuales tanto para estudiantes como para profesores incluyen dos meses gratis (aprox. 16.7% de descuento). Contáctanos si necesitas licencias personalizadas para escuelas o estudios.",
         },
         {
           question: "¿Qué idiomas están soportados?",
@@ -1179,6 +1305,7 @@ const translations: Record<Language, Translations> = {
       resources: "Recursos",
       company: "Compañía",
       copyright: "© GrooveLab. Todos los derechos reservados.",
+      madeFor: "Hecho para músicos a los que les importa el oficio.",
       links: {
         features: "Características",
         pricing: "Precios",
@@ -1191,6 +1318,7 @@ const translations: Record<Language, Translations> = {
         contact: "Contacto",
         privacy: "Privacidad",
         terms: "Términos",
+        refund: "Política de reembolsos",
       },
     },
     modal: {
@@ -1220,14 +1348,32 @@ const translations: Record<Language, Translations> = {
         title: "Mira GrooveLab en acción",
         subtitle: "Observa cómo profesores y alumnos permanecen perfectamente sincronizados.",
         close: "Cerrar",
+        // 4B: disabled Play + localized stub
+        play: "Demo próximamente",
+        overview: "VISIÓN GENERAL",
+        description: "Descubre cómo los profesores envían ejercicios a los alumnos, controlan un metrónomo compartido durante las sesiones en vivo y siguen el progreso de los alumnos (hecho / no hecho).",
       },
     },
     misc: {
       or: "o",
-      perMonth: "/ mes",
+      perMonth: "/mes",
       studentsLabel: "alumnos",
       presets: "presets",
       unlimited: "Ilimitado",
+    },
+    labels: {
+      capabilities: "CAPACIDADES",
+      questions: "PREGUNTAS",
+      whoItsFor: "PARA QUIÉN",
+      dedicatedToEducators: "PARA EDUCADORES",
+      simpleWorkflow: "CÓMO FUNCIONA",
+      notationEditor: "EDITOR DE NOTACIÓN",
+      notationHint: "Toca los pads para escribir notas — como en el editor",
+    },
+    finalCta: {
+      heading: "Dale a tus alumnos un motivo para practicar",
+      sub: "Asigna tareas en notación, da clases en vivo y sigue el progreso. Empieza gratis — sin tarjeta.",
+      cta: "Empieza gratis",
     },
   },
 };
@@ -1243,17 +1389,23 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguageState] = useState<Language>('en');
 
+  // Restore saved language on mount (SSR default is 'en' in layout)
   useEffect(() => {
     const saved = localStorage.getItem('groovelab-language') as Language | null;
     if (saved && ['en', 'ru', 'es'].includes(saved)) {
       setLanguageState(saved);
-      document.documentElement.lang = saved;
     }
   }, []);
+
+  // Keep document.documentElement.lang in sync with current language (reacts to changes, not only mount)
+  useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
 
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
     localStorage.setItem('groovelab-language', lang);
+    // Immediate update for responsiveness on switch; effect above also ensures consistency
     document.documentElement.lang = lang;
   };
 

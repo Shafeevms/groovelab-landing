@@ -3,18 +3,15 @@
 import React from 'react';
 import { useLanguage } from '@/lib/i18n';
 import { ArrowRight } from 'lucide-react';
+import { buildAppUrl } from '@/lib/app-url';
 
-interface ForTeachersProps {
-  onCtaClick: () => void;
-}
-
-export default function ForTeachers({ onCtaClick }: ForTeachersProps) {
+export default function ForTeachers() {
   const { t } = useLanguage();
 
   return (
     <section id="for-teachers" className="section max-w-7xl mx-auto px-6 py-20 md:py-24">
       <div className="max-w-4xl mb-14">
-        <div className="uppercase tracking-[3px] text-xs text-[#a3e635] mb-4 font-medium">DEDICATED TO EDUCATORS</div>
+        <div className="uppercase tracking-[3px] text-xs text-[#a3e635] mb-4 font-medium">{t.labels.dedicatedToEducators}</div>
         <h2 className="text-6xl md:text-[64px] tracking-[-2.8px] font-semibold leading-none mb-6">
           {t.forTeachers.title}
         </h2>
@@ -41,7 +38,9 @@ export default function ForTeachers({ onCtaClick }: ForTeachersProps) {
       </div>
 
       <button 
-        onClick={onCtaClick}
+        onClick={() => {
+          window.location.href = buildAppUrl({ utm_content: 'forteachers' });
+        }}
         className="btn-primary inline-flex items-center gap-3 px-8 py-3.5 rounded-full text-base group"
       >
         {t.forTeachers.cta}

@@ -25,7 +25,7 @@ export default function Features() {
   return (
     <section id="features" className="section max-w-7xl mx-auto px-6 py-20 md:py-24">
       <div className="text-center mb-14">
-        <div className="text-xs tracking-[3px] text-[#a3e635] mb-3 font-medium">CAPABILITIES</div>
+        <div className="text-xs tracking-[3px] text-[#a3e635] mb-3 font-medium">{t.labels.capabilities}</div>
         <h2 className="text-5xl md:text-6xl tracking-[-2.2px] font-semibold mb-4">{t.features.title}</h2>
         <p className="max-w-lg mx-auto text-xl text-[#a1a1aa]">{t.features.subtitle}</p>
       </div>

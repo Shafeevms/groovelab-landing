@@ -25,17 +25,18 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
         <div className="absolute inset-0 bg-[radial-gradient(#262626_0.8px,transparent_1px)] bg-[length:4px_4px]" />
         
         <button 
-          onClick={() => alert("In a real product this would play a high-quality demo video showing the real-time sync experience.")}
-          className="relative z-10 flex items-center justify-center w-16 h-16 rounded-full bg-white/95 text-black hover:bg-white active:scale-95 transition-all shadow-xl"
+          disabled
+          className="relative z-10 flex items-center justify-center w-16 h-16 rounded-full bg-white/60 text-black/70 cursor-not-allowed transition-all shadow-xl"
         >
           <Play size={28} className="ml-1" />
         </button>
+        <div className="relative mt-2 text-[10px] tracking-widest text-[#a1a1aa] z-10 opacity-70">{t.modal.demo.play}</div>
         
-        <div className="relative mt-5 text-xs tracking-widest text-[#52525b] z-10">2:14 — PRODUCT OVERVIEW</div>
+        <div className="relative mt-4 text-xs tracking-widest text-[#52525b] z-10">{t.modal.demo.overview}</div>
       </div>
 
       <div className="text-sm text-[#a1a1aa] mb-7">
-        See how teachers instantly deliver exercises to students, control a shared metronome during live sessions, and track detailed practice analytics.
+        {t.modal.demo.description}
       </div>
 
       <button 
