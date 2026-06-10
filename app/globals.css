@@ -275,6 +275,16 @@ html {
   filter: drop-shadow(0 1px 1px rgba(0,0,0,0.5));
 }
 
+/* Playing note accent on staff (when playhead is on it) */
+.note-playing {
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.5)) drop-shadow(0 0 6px rgba(163, 230, 53, 0.55));
+}
+
+/* Playhead already has base transition in .playhead */
+.playhead {
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.35);
+}
+
 .rhythm-step {
   transition: transform 0.08s ease, 
               background-color 0.08s ease, 
