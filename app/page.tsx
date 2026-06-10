@@ -44,7 +44,6 @@ export default function GrooveLabLanding() {
       <Navbar 
         onLoginClick={openLogin} 
         onSignupClick={openSignup} 
-        onTeachersClick={scrollToTeachers}
       />
       
       <main>

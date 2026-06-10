@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { useLanguage } from '@/lib/i18n';
-import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 interface ForTeachersProps {

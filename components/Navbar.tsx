@@ -8,10 +8,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 interface NavbarProps {
   onLoginClick: () => void;
   onSignupClick: () => void;
-  onTeachersClick?: () => void;
 }
 
-export default function Navbar({ onLoginClick, onSignupClick, onTeachersClick }: NavbarProps) {
+export default function Navbar({ onLoginClick, onSignupClick }: NavbarProps) {
   const { t, language, setLanguage } = useLanguage();
   const [mobileOpen, setMobileOpen] = useState(false);
 
