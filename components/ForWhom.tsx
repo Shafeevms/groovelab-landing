@@ -2,12 +2,14 @@
 
 import React from 'react';
 import { useLanguage } from '@/lib/i18n';
+import { usePostHog } from 'posthog-js/react';
 import { User, Users } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { buildAppUrl } from '@/lib/app-url';
 
 export default function ForWhom() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const posthog = usePostHog();
 
   const container = {
     hidden: {},
@@ -55,6 +57,11 @@ export default function ForWhom() {
 
           <button
             onClick={() => {
+              posthog?.capture('cta_click', {
+                location: 'forwhom_teacher',
+                plan: null,
+                language,
+              });
               window.location.href = buildAppUrl({ utm_content: 'forwhom_teacher' });
             }}
             className="mt-8 btn-primary w-full py-3 rounded-2xl text-sm font-semibold"
@@ -82,6 +89,11 @@ export default function ForWhom() {
 
           <button
             onClick={() => {
+              posthog?.capture('cta_click', {
+                location: 'forwhom_student',
+                plan: null,
+                language,
+              });
               window.location.href = buildAppUrl({ utm_content: 'forwhom_student' });
             }}
             className="mt-8 btn-secondary w-full py-3 rounded-2xl text-sm font-medium"

@@ -2,11 +2,13 @@
 
 import React from 'react';
 import { useLanguage } from '@/lib/i18n';
+import { usePostHog } from 'posthog-js/react';
 import { ArrowRight } from 'lucide-react';
 import { buildAppUrl } from '@/lib/app-url';
 
 export default function FinalCta() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const posthog = usePostHog();
 
   return (
     <section className="section max-w-4xl mx-auto px-6 py-20 md:py-24 text-center border-t border-[#262626]">
@@ -19,6 +21,11 @@ export default function FinalCta() {
 
       <button
         onClick={() => {
+          posthog?.capture('cta_click', {
+            location: 'final_cta',
+            plan: null,
+            language,
+          });
           window.location.href = buildAppUrl({ utm_content: 'final_cta' });
         }}
         className="btn-primary inline-flex items-center gap-3 px-9 py-3.5 rounded-full text-base font-semibold group"

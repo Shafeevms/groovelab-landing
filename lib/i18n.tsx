@@ -264,6 +264,13 @@ export interface Translations {
     sub: string;
     cta: string;
   };
+  // Consent banner (strict GDPR/UK GDPR/LGPD/CCPA mode — texts only added, never modify other sections)
+  consent: {
+    banner: string;
+    accept: string;
+    decline: string;
+    privacy: string;
+  };
 }
 
 const translations: Record<Language, Translations> = {
@@ -635,6 +642,12 @@ const translations: Record<Language, Translations> = {
       sub: "Assign homework in notation, run live lessons, and track progress. Start free — no card required.",
       cta: "Start free",
     },
+    consent: {
+      banner: "We use privacy-friendly analytics to understand how visitors use the site. You can accept or decline below.",
+      accept: "Accept",
+      decline: "Decline",
+      privacy: "Privacy Policy",
+    },
   },
 
   ru: {
@@ -1005,6 +1018,12 @@ const translations: Record<Language, Translations> = {
       sub: "Задавайте ДЗ в нотации, ведите live-уроки и отслеживайте прогресс. Начните бесплатно — без карты.",
       cta: "Начать бесплатно",
     },
+    consent: {
+      banner: "Мы используем приватную аналитику, чтобы понимать, как посетители пользуются сайтом. Вы можете принять или отклонить ниже.",
+      accept: "Принять",
+      decline: "Отклонить",
+      privacy: "Политика конфиденциальности",
+    },
   },
 
   es: {
@@ -1374,6 +1393,12 @@ const translations: Record<Language, Translations> = {
       heading: "Dale a tus alumnos un motivo para practicar",
       sub: "Asigna tareas en notación, da clases en vivo y sigue el progreso. Empieza gratis — sin tarjeta.",
       cta: "Empieza gratis",
+    },
+    consent: {
+      banner: "Usamos analítica respetuosa con la privacidad para entender cómo se usa el sitio. Puedes aceptar o rechazar a continuación.",
+      accept: "Aceptar",
+      decline: "Rechazar",
+      privacy: "Política de privacidad",
     },
   },
 };

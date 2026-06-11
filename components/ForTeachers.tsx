@@ -2,11 +2,13 @@
 
 import React from 'react';
 import { useLanguage } from '@/lib/i18n';
+import { usePostHog } from 'posthog-js/react';
 import { ArrowRight } from 'lucide-react';
 import { buildAppUrl } from '@/lib/app-url';
 
 export default function ForTeachers() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const posthog = usePostHog();
 
   return (
     <section id="for-teachers" className="section max-w-7xl mx-auto px-6 py-20 md:py-24">
@@ -39,6 +41,11 @@ export default function ForTeachers() {
 
       <button 
         onClick={() => {
+          posthog?.capture('cta_click', {
+            location: 'forteachers',
+            plan: null,
+            language,
+          });
           window.location.href = buildAppUrl({ utm_content: 'forteachers' });
         }}
         className="btn-primary inline-flex items-center gap-3 px-8 py-3.5 rounded-full text-base group"

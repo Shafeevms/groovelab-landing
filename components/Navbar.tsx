@@ -3,12 +3,14 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useLanguage } from '@/lib/i18n';
+import { usePostHog } from 'posthog-js/react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { buildAppUrl } from '@/lib/app-url';
 
 export default function Navbar() {
   const { t, language, setLanguage } = useLanguage();
+  const posthog = usePostHog();
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const navLinks = [
@@ -70,7 +72,14 @@ export default function Navbar() {
             {languages.map((lang) => (
               <button
                 key={lang.code}
-                onClick={() => setLanguage(lang.code)}
+                onClick={() => {
+                  const from = language;
+                  const to = lang.code;
+                  if (from !== to) {
+                    posthog?.capture('language_change', { from, to });
+                  }
+                  setLanguage(lang.code);
+                }}
                 className={`lang-btn ${language === lang.code ? 'active' : ''}`}
               >
                 {lang.label}
@@ -82,6 +91,11 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-3">
             <button
               onClick={() => {
+                posthog?.capture('cta_click', {
+                  location: 'navbar_signup',
+                  plan: null,
+                  language,
+                });
                 window.location.href = buildAppUrl({ utm_content: 'navbar_signup' });
               }}
               className="btn-primary px-5 py-2 rounded-full text-sm"
@@ -129,6 +143,11 @@ export default function Navbar() {
                   <button
                     key={lang.code}
                     onClick={() => {
+                      const from = language;
+                      const to = lang.code;
+                      if (from !== to) {
+                        posthog?.capture('language_change', { from, to });
+                      }
                       setLanguage(lang.code);
                       setMobileOpen(false);
                     }}
@@ -146,6 +165,11 @@ export default function Navbar() {
               <div className="flex flex-col gap-3 pt-2">
                 <button
                   onClick={() => {
+                    posthog?.capture('cta_click', {
+                      location: 'navbar_signup',
+                      plan: null,
+                      language,
+                    });
                     window.location.href = buildAppUrl({ utm_content: 'navbar_signup' });
                     setMobileOpen(false);
                   }}

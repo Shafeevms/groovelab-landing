@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { useLanguage } from '@/lib/i18n';
+import { usePostHog } from 'posthog-js/react';
 import { Check } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { buildAppUrl } from '@/lib/app-url';
@@ -9,12 +10,21 @@ import { buildAppUrl } from '@/lib/app-url';
 type Tab = 'students' | 'teachers';
 
 export default function Pricing() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const posthog = usePostHog();
   const [activeTab, setActiveTab] = useState<Tab>('students');
 
-  const handleTab = (tab: Tab) => setActiveTab(tab);
+  const handleTab = (tab: Tab) => {
+    posthog?.capture('pricing_tab_switch', { tab });
+    setActiveTab(tab);
+  };
 
   const handlePlanCta = (plan: 'free' | 'basic' | 'pro' | 'teacher_s' | 'teacher_m' | 'teacher_l') => {
+    posthog?.capture('cta_click', {
+      location: `pricing_${plan}`,
+      plan,
+      language,
+    });
     const utmContent = `pricing_${plan}`;
     window.location.href = buildAppUrl({ utm_content: utmContent });
   };

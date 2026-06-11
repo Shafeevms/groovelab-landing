@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { useLanguage } from '@/lib/i18n';
+import { usePostHog } from 'posthog-js/react';
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import RhythmVisualizer from './RhythmVisualizer';
@@ -12,11 +13,13 @@ interface HeroProps {
 }
 
 export default function Hero({ onDemoClick }: HeroProps) {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const posthog = usePostHog();
 
   // Stub handler for solo CTA (scrolls to ForWhom section for now; real app navigation + UTM in Session 3).
   // Do not attach auth here.
   const scrollToForWhom = () => {
+    posthog?.capture('solo_cta_click', { language });
     const el = document.getElementById('for-whom');
     el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
@@ -43,6 +46,11 @@ export default function Hero({ onDemoClick }: HeroProps) {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-5">
           <button
             onClick={() => {
+              posthog?.capture('cta_click', {
+                location: 'hero',
+                plan: null,
+                language,
+              });
               window.location.href = buildAppUrl({ utm_content: 'hero' });
             }}
             className="btn-primary w-full sm:w-auto px-9 py-3.5 rounded-full text-base flex items-center justify-center gap-2 group"
