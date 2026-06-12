@@ -17,9 +17,8 @@ export default function Hero({ onDemoClick }: HeroProps) {
   const posthog = usePostHog();
 
   // Stub handler for solo CTA (scrolls to ForWhom section for now; real app navigation + UTM in Session 3).
-  // Do not attach auth here.
+  // Do not attach auth here. NOTE: solo_cta_click removed (not in agreed event list).
   const scrollToForWhom = () => {
-    posthog?.capture('solo_cta_click', { language });
     const el = document.getElementById('for-whom');
     el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
@@ -51,7 +50,10 @@ export default function Hero({ onDemoClick }: HeroProps) {
                 plan: null,
                 language,
               });
-              window.location.href = buildAppUrl({ utm_content: 'hero' });
+              const target = buildAppUrl({ utm_content: 'hero' });
+              setTimeout(() => {
+                window.location.href = target;
+              }, 0);
             }}
             className="btn-primary w-full sm:w-auto px-9 py-3.5 rounded-full text-base flex items-center justify-center gap-2 group"
           >

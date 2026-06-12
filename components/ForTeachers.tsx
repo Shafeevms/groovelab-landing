@@ -46,7 +46,10 @@ export default function ForTeachers() {
             plan: null,
             language,
           });
-          window.location.href = buildAppUrl({ utm_content: 'forteachers' });
+          const target = buildAppUrl({ utm_content: 'forteachers' });
+          setTimeout(() => {
+            window.location.href = target;
+          }, 0);
         }}
         className="btn-primary inline-flex items-center gap-3 px-8 py-3.5 rounded-full text-base group"
       >

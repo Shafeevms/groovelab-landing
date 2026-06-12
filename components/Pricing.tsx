@@ -15,7 +15,7 @@ export default function Pricing() {
   const [activeTab, setActiveTab] = useState<Tab>('students');
 
   const handleTab = (tab: Tab) => {
-    posthog?.capture('pricing_tab_switch', { tab });
+    // pricing_tab_switch removed (was not in the agreed required events list: only cta_click, language_change, $pageview)
     setActiveTab(tab);
   };
 
@@ -26,7 +26,10 @@ export default function Pricing() {
       language,
     });
     const utmContent = `pricing_${plan}`;
-    window.location.href = buildAppUrl({ utm_content: utmContent });
+    const target = buildAppUrl({ utm_content: utmContent });
+    setTimeout(() => {
+      window.location.href = target;
+    }, 0);
   };
 
   return (

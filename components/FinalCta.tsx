@@ -26,7 +26,10 @@ export default function FinalCta() {
             plan: null,
             language,
           });
-          window.location.href = buildAppUrl({ utm_content: 'final_cta' });
+          const target = buildAppUrl({ utm_content: 'final_cta' });
+          setTimeout(() => {
+            window.location.href = target;
+          }, 0);
         }}
         className="btn-primary inline-flex items-center gap-3 px-9 py-3.5 rounded-full text-base font-semibold group"
       >

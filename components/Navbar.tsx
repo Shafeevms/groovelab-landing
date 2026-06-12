@@ -76,7 +76,7 @@ export default function Navbar() {
                   const from = language;
                   const to = lang.code;
                   if (from !== to) {
-                    posthog?.capture('language_change', { from, to });
+                    posthog?.capture('language_change', { language: to });
                   }
                   setLanguage(lang.code);
                 }}
@@ -96,7 +96,10 @@ export default function Navbar() {
                   plan: null,
                   language,
                 });
-                window.location.href = buildAppUrl({ utm_content: 'navbar_signup' });
+                const target = buildAppUrl({ utm_content: 'navbar_signup' });
+                setTimeout(() => {
+                  window.location.href = target;
+                }, 0);
               }}
               className="btn-primary px-5 py-2 rounded-full text-sm"
             >
@@ -146,7 +149,7 @@ export default function Navbar() {
                       const from = language;
                       const to = lang.code;
                       if (from !== to) {
-                        posthog?.capture('language_change', { from, to });
+                        posthog?.capture('language_change', { language: to });
                       }
                       setLanguage(lang.code);
                       setMobileOpen(false);
@@ -170,8 +173,11 @@ export default function Navbar() {
                       plan: null,
                       language,
                     });
-                    window.location.href = buildAppUrl({ utm_content: 'navbar_signup' });
+                    const target = buildAppUrl({ utm_content: 'navbar_signup' });
                     setMobileOpen(false);
+                    setTimeout(() => {
+                      window.location.href = target;
+                    }, 0);
                   }}
                   className="btn-primary w-full py-3 rounded-full text-sm"
                 >

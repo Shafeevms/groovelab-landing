@@ -17,8 +17,9 @@ import { useConsent, needsConsent } from './consent';
  * - Geo + consent: see lib/consent.tsx. In regions without legal requirement (most of world)
  *   tracking starts immediately (opt-in). In EU/EEA/UK/BR/(US-CA) we start opted-out and
  *   only enable after explicit grant().
- * - Existing events (cta_click, solo_cta_click, language_change, pricing_tab_switch, $pageview)
- *   continue to work unchanged — capture is a safe no-op while opted out.
+ * - Agreed events only: cta_click (on all CTAs w/ location + plan?), language_change (w/ language), $pageview (manual).
+ *   Other previous events (solo_cta_click, pricing_tab_switch) removed as not in spec.
+ *   capture is a safe no-op while opted out.
  * - Pageviews are tracked explicitly via <PostHogPageView /> (handles landing + legal pages
  *   and client-side route transitions).
  */
@@ -83,49 +84,32 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
       opt_out_capturing_by_default: optOutByDefault,
     });
 
-    // If we decided not to opt-out by default (non-strict region or already granted),
-    // ensure we are opted in. Safe to call even if already in.
-    if (!optOutByDefault) {
-      try {
-        posthog.opt_in_capturing();
-      } catch {
-        // ignore
-      }
-    }
+    // NOTE: opt_in_capturing() is NO LONGER called here.
+    // For non-strict regions: init with opt_out_capturing_by_default:false enables capture.
+    // For strict+granted (reloads): same, init opts in without emitting extra $opt_in.
+    // Explicit single $opt_in (with guard) only on first Accept click in ConsentBanner.
   }, [country, consent]); // re-eval only on real changes (init is guarded inside posthog)
 
   // Reactive: when user makes choice in banner (or stored value), flip capturing state.
-  // Also ensures non-requiring regions are always opted in.
+  // opt_in is handled EXCLUSIVELY in ConsentBanner handleAccept (with has_opted_in guard)
+  // to ensure $opt_in is emitted exactly once, only on explicit Accept.
+  // Here we only handle explicit deny (for strict regions).
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
     // posthog may not be initialized yet (no key / DNT) — calls are safe
     const regionRequires = needsConsent(country);
 
-    if (!regionRequires) {
-      // World-wide (non-strict) — always track
-      try {
-        posthog.opt_in_capturing();
-      } catch {
-        /* no-op */
-      }
-      return;
-    }
-
-    if (consent === 'granted') {
-      try {
-        posthog.opt_in_capturing();
-      } catch {
-        /* no-op */
-      }
-    } else if (consent === 'denied') {
+    if (regionRequires && consent === 'denied') {
       try {
         posthog.opt_out_capturing();
       } catch {
         /* no-op */
       }
     }
-    // 'unknown' + requires → remain opted out (we started with opt_out_capturing_by_default)
+    // granted: banner already called opt_in once; reloads rely on init opt_out_by_default:false
+    // !regionRequires: init with false default handles capturing, no $opt_in spam
+    // unknown + requires: remain opted out as set at init
   }, [consent, country]);
 
   // Always wrap — usePostHog() and context consumers remain safe (no-op client when not inited)

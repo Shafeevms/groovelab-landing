@@ -16,9 +16,13 @@ export default function ConsentBanner() {
 
   const handleAccept = () => {
     grant();
-    // Enable capturing immediately (PostHog will have been inited with opt_out_by_default)
+    // Enable capturing immediately. Guard ensures opt_in (and $opt_in event) fires
+    // EXACTLY ONCE — only on explicit "Accept" click, never on re-renders/re-mounts/reloads.
+    // (geo-aware: banner only mounts when needsConsent && unknown; after grant it unmounts)
     try {
-      posthog.opt_in_capturing();
+      if (!posthog.has_opted_in_capturing()) {
+        posthog.opt_in_capturing();
+      }
     } catch {
       // safe no-op if posthog not ready
     }

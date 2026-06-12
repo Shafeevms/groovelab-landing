@@ -62,7 +62,10 @@ export default function ForWhom() {
                 plan: null,
                 language,
               });
-              window.location.href = buildAppUrl({ utm_content: 'forwhom_teacher' });
+              const target = buildAppUrl({ utm_content: 'forwhom_teacher' });
+              setTimeout(() => {
+                window.location.href = target;
+              }, 0);
             }}
             className="mt-8 btn-primary w-full py-3 rounded-2xl text-sm font-semibold"
           >
@@ -94,7 +97,10 @@ export default function ForWhom() {
                 plan: null,
                 language,
               });
-              window.location.href = buildAppUrl({ utm_content: 'forwhom_student' });
+              const target = buildAppUrl({ utm_content: 'forwhom_student' });
+              setTimeout(() => {
+                window.location.href = target;
+              }, 0);
             }}
             className="mt-8 btn-secondary w-full py-3 rounded-2xl text-sm font-medium"
           >
