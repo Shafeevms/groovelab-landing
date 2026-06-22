@@ -9,5 +9,5 @@ export function buildAppUrl({ utm_content }: { utm_content: string }): string {
     utm_medium: 'cta',
     utm_content,
   });
-  return `https://app.groovelab.app/?${params.toString()}`;
+  return `https://app.drumion.app/?${params.toString()}`;
 }

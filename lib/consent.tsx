@@ -4,7 +4,7 @@ import React, { createContext, useContext, useState, useEffect, useCallback, Rea
 
 export type ConsentState = 'unknown' | 'granted' | 'denied';
 
-const STORAGE_KEY = 'groovelab_consent_v1';
+const STORAGE_KEY = 'drumion_consent_v1';
 
 // Countries/regions that require explicit consent for analytics (GDPR/UK GDPR/LGPD + CCPA for CA)
 const STRICT_CONSENT_COUNTRIES = new Set([

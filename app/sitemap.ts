@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://groovelab.app';
+  const baseUrl = 'https://drumion.app';
   const lastModified = new Date();
 
   return [

@@ -3,14 +3,14 @@ import Link from "next/link";
 import LegalPage from "@/components/LegalPage";
 
 export const metadata: Metadata = {
-  title: "Pricing — GrooveLab",
+  title: "Pricing — Drumion",
 };
 
 export default function PricingPage() {
   return (
     <LegalPage title="Pricing" current="pricing">
       <p>
-        GrooveLab is a subscription-based web application for drummers, music teachers, and students. Our plans are billed monthly in USD and can be canceled at any time.
+        Drumion is a subscription-based web application for drummers, music teachers, and students. Our plans are billed monthly in USD and can be canceled at any time.
       </p>
 
       <h2 className="text-white text-2xl font-semibold tracking-[-0.5px] mt-8 mb-3">Plans</h2>
@@ -31,9 +31,9 @@ export default function PricingPage() {
 
       <h2 className="text-white text-2xl font-semibold tracking-[-0.5px] mt-8 mb-3">Payment Processing</h2>
       <p>
-        Payments for GrooveLab are processed by Paddle, our authorized payment provider and Merchant of Record.
+        Payments for Drumion are processed by Paddle, our authorized payment provider and Merchant of Record.
         This means that Paddle is responsible for processing payments, handling applicable taxes, and managing payment-related compliance.
-        GrooveLab does not store your full credit card details. Card payments and payment information are handled securely by Paddle.
+        Drumion does not store your full credit card details. Card payments and payment information are handled securely by Paddle.
       </p>
 
       <h2 className="text-white text-2xl font-semibold tracking-[-0.5px] mt-8 mb-3">Taxes</h2>
@@ -63,13 +63,13 @@ export default function PricingPage() {
 
       <h2 className="text-white text-2xl font-semibold tracking-[-0.5px] mt-8 mb-3">Free Trials and Promotions</h2>
       <p>
-        GrooveLab may offer free trials, discounts, or promotional pricing from time to time.
+        Drumion may offer free trials, discounts, or promotional pricing from time to time.
         Any promotional offer may be subject to additional terms, including eligibility requirements, duration, and renewal price after the promotion ends.
       </p>
 
       <h2 className="text-white text-2xl font-semibold tracking-[-0.5px] mt-8 mb-3">Contact</h2>
       <p>
-        If you have questions about pricing, billing, or your subscription, please contact us at: <a href="mailto:support@groovelab.app" className="text-[#a3e635] hover:underline">support@groovelab.app</a>
+        If you have questions about pricing, billing, or your subscription, please contact us at: <a href="mailto:support@drumion.app" className="text-[#a3e635] hover:underline">support@drumion.app</a>
       </p>
     </LegalPage>
   );

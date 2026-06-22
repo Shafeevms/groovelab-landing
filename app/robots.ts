@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://groovelab.app/sitemap.xml',
-    host: 'https://groovelab.app',
+    sitemap: 'https://drumion.app/sitemap.xml',
+    host: 'https://drumion.app',
   };
 }

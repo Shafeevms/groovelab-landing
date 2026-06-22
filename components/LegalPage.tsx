@@ -23,7 +23,7 @@ export default function LegalPage({ title, current, children }: LegalPageProps) 
           href="/"
           className="inline-flex items-center text-sm text-[#a1a1aa] hover:text-white transition-colors mb-4"
         >
-          ← GrooveLab
+          ← Drumion
         </Link>
 
         {/* Legal pages navigation */}
@@ -58,12 +58,12 @@ export default function LegalPage({ title, current, children }: LegalPageProps) 
 
         {/* Footer strip */}
         <div className="mt-20 pt-8 border-t border-[#262626] text-xs text-[#52525b] flex flex-col sm:flex-row gap-y-1 items-start sm:items-center justify-between">
-          <div>© 2026 GrooveLab. All rights reserved.</div>
+          <div>© 2026 Drumion. All rights reserved.</div>
           <a
-            href="mailto:support@groovelab.app"
+            href="mailto:support@drumion.app"
             className="hover:text-white transition-colors"
           >
-            support@groovelab.app
+            support@drumion.app
           </a>
         </div>
       </div>

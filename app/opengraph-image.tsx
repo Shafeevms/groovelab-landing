@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og';
 
-export const alt = 'GrooveLab — Your students actually practice between lessons';
+export const alt = 'Drumion — Your students actually practice between lessons';
 export const size = {
   width: 1200,
   height: 630,
@@ -47,17 +47,7 @@ export default async function Image() {
               color: '#a3e635',
             }}
           >
-            Groove
-          </div>
-          <div
-            style={{
-              fontSize: '32px',
-              fontWeight: 700,
-              letterSpacing: '-1.5px',
-              color: '#f5f5f5',
-            }}
-          >
-            Lab
+            Drumion
           </div>
         </div>
 
@@ -109,7 +99,7 @@ export default async function Image() {
             letterSpacing: '0.5px',
           }}
         >
-          groovelab.app
+          drumion.app
         </div>
       </div>
     ),

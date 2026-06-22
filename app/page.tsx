@@ -14,7 +14,7 @@ import FinalCta from '@/components/FinalCta';
 import Footer from '@/components/Footer';
 import DemoModal from '@/components/DemoModal';
 
-export default function GrooveLabLanding() {
+export default function DrumionLanding() {
   const [demoModalOpen, setDemoModalOpen] = useState(false);
 
   const openDemo = () => setDemoModalOpen(true);

@@ -2,20 +2,20 @@ import type { Metadata } from "next";
 import LegalPage from "@/components/LegalPage";
 
 export const metadata: Metadata = {
-  title: "Refund Policy — GrooveLab",
+  title: "Refund Policy — Drumion",
 };
 
 export default function RefundPage() {
   return (
     <LegalPage title="Refund Policy" current="refund">
       <p>
-        This Refund Policy explains how cancellations and refund requests are handled for GrooveLab subscriptions.
-        GrooveLab is a subscription-based web application for drummers, music teachers, and students. Payments are processed by Paddle, our payment provider and Merchant of Record.
+        This Refund Policy explains how cancellations and refund requests are handled for Drumion subscriptions.
+        Drumion is a subscription-based web application for drummers, music teachers, and students. Payments are processed by Paddle, our payment provider and Merchant of Record.
       </p>
 
       <h2 className="text-white text-2xl font-semibold tracking-[-0.5px] mt-8 mb-3">1. Monthly Subscriptions</h2>
       <p>
-        All GrooveLab plans are billed monthly in advance.
+        All Drumion plans are billed monthly in advance.
         Your subscription automatically renews each month unless you cancel it before the next billing date.
         Prices are listed in USD. Applicable taxes may be added by Paddle at checkout depending on your location.
       </p>
@@ -24,7 +24,7 @@ export default function RefundPage() {
       <p>
         You can cancel your subscription at any time.
         After cancellation, you will continue to have access to your paid plan until the end of the current billing period. Your subscription will not renew after that period ends.
-        You can cancel your subscription through the available account or billing settings, or by contacting us at: <a href="mailto:support@groovelab.app" className="text-[#a3e635] hover:underline">support@groovelab.app</a>
+        You can cancel your subscription through the available account or billing settings, or by contacting us at: <a href="mailto:support@drumion.app" className="text-[#a3e635] hover:underline">support@drumion.app</a>
       </p>
 
       <h2 className="text-white text-2xl font-semibold tracking-[-0.5px] mt-8 mb-3">3. Refunds</h2>
@@ -37,17 +37,17 @@ export default function RefundPage() {
         <li>you were charged due to a technical error;</li>
         <li>you were charged after a confirmed cancellation;</li>
         <li>duplicate payments were made;</li>
-        <li>you were unable to access the service due to a problem caused by GrooveLab;</li>
+        <li>you were unable to access the service due to a problem caused by Drumion;</li>
         <li>a refund is required by applicable law.</li>
       </ul>
 
       <h2 className="text-white text-2xl font-semibold tracking-[-0.5px] mt-8 mb-3">4. How to Request a Refund</h2>
       <p>
-        To request a refund, please contact us at: <a href="mailto:support@groovelab.app" className="text-[#a3e635] hover:underline">support@groovelab.app</a>
+        To request a refund, please contact us at: <a href="mailto:support@drumion.app" className="text-[#a3e635] hover:underline">support@drumion.app</a>
       </p>
       <p>Please include:</p>
       <ul className="list-disc pl-5 space-y-1.5 text-[#a1a1aa]">
-        <li>the email address used for your GrooveLab account;</li>
+        <li>the email address used for your Drumion account;</li>
         <li>the email address used for payment, if different;</li>
         <li>the subscription plan;</li>
         <li>the date of the charge;</li>
@@ -59,7 +59,7 @@ export default function RefundPage() {
 
       <h2 className="text-white text-2xl font-semibold tracking-[-0.5px] mt-8 mb-3">5. Paddle as Merchant of Record</h2>
       <p>
-        Payments for GrooveLab are processed by Paddle, which acts as Merchant of Record.
+        Payments for Drumion are processed by Paddle, which acts as Merchant of Record.
         This means Paddle is responsible for payment processing, tax calculation, tax collection, and tax remittance where applicable.
         Refunds may be processed through Paddle and may appear on your bank or card statement as a refund from Paddle or a related Paddle billing descriptor.
       </p>
@@ -92,7 +92,7 @@ export default function RefundPage() {
 
       <h2 className="text-white text-2xl font-semibold tracking-[-0.5px] mt-8 mb-3">10. Contact</h2>
       <p>
-        If you have any questions about cancellations or refunds, please contact us at: <a href="mailto:support@groovelab.app" className="text-[#a3e635] hover:underline">support@groovelab.app</a>
+        If you have any questions about cancellations or refunds, please contact us at: <a href="mailto:support@drumion.app" className="text-[#a3e635] hover:underline">support@drumion.app</a>
       </p>
     </LegalPage>
   );

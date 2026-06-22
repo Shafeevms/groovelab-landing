@@ -13,9 +13,9 @@ export default function Footer() {
           <div className="max-w-sm">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-8 h-8 rounded-xl bg-[#a3e635] flex items-center justify-center">
-                <span className="text-[#0a0a0a] font-bold text-lg tracking-[-1px]">GL</span>
+                <span className="text-[#0a0a0a] font-bold text-lg tracking-[-1px]">D</span>
               </div>
-              <span className="font-semibold text-2xl tracking-[-0.4px]">GrooveLab</span>
+              <span className="font-semibold text-2xl tracking-[-0.4px]">Drumion</span>
             </div>
             <p className="text-[#a1a1aa] leading-relaxed pr-2">{t.footer.tagline}</p>
           </div>
@@ -32,13 +32,13 @@ export default function Footer() {
             <div>
               <div className="font-medium mb-4 tracking-wide text-[#71717a]">{t.footer.resources}</div>
               <div className="space-y-[11px] text-[#a1a1aa]">
-                <a href="mailto:support@groovelab.app" className="block hover:text-white transition-colors">{t.footer.links.support}</a>
+                <a href="mailto:support@drumion.app" className="block hover:text-white transition-colors">{t.footer.links.support}</a>
               </div>
             </div>
             <div>
               <div className="font-medium mb-4 tracking-wide text-[#71717a]">{t.footer.company}</div>
               <div className="space-y-[11px] text-[#a1a1aa]">
-                <a href="mailto:support@groovelab.app" className="block hover:text-white transition-colors">{t.footer.links.contact}</a>
+                <a href="mailto:support@drumion.app" className="block hover:text-white transition-colors">{t.footer.links.contact}</a>
                 <a href="/privacy" target="_blank" rel="noopener noreferrer" className="block hover:text-white transition-colors">{t.footer.links.privacy}</a>
                 <a href="/terms" target="_blank" rel="noopener noreferrer" className="block hover:text-white transition-colors">{t.footer.links.terms}</a>
                 <a href="/refund" target="_blank" rel="noopener noreferrer" className="block hover:text-white transition-colors">{t.footer.links.refund}</a>

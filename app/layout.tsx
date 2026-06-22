@@ -21,22 +21,20 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://groovelab.app'),
-  title: "GrooveLab — Drum practice & teaching tool",
+  metadataBase: new URL('https://drumion.app'),
+  title: "Drumion — Drum practice & teaching tool",
   description: "Assign drum homework in notation, run live lessons, and track student progress — powered by an endless exercise generator. Start free.",
-  icons: {
-    icon: "/favicon.ico",
-  },
+
   openGraph: {
-    title: "GrooveLab — Drum practice & teaching tool",
+    title: "Drumion — Drum practice & teaching tool",
     description: "Assign drum homework in notation, run live lessons, and track student progress — powered by an endless exercise generator. Start free.",
-    url: "https://groovelab.app",
-    siteName: "GrooveLab",
+    url: "https://drumion.app",
+    siteName: "Drumion",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "GrooveLab — Drum practice & teaching tool",
+    title: "Drumion — Drum practice & teaching tool",
     description: "Assign drum homework in notation, run live lessons, and track student progress — powered by an endless exercise generator. Start free.",
   },
 };

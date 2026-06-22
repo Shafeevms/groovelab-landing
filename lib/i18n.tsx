@@ -323,7 +323,7 @@ const translations: Record<Language, Translations> = {
       },
     },
     mainAdvantage: {
-      badge: "The GrooveLab advantage",
+      badge: "The Drumion advantage",
       title: "Real-time connection between teacher and student",
       subtitle: "The moment a teacher sends or edits an exercise, the student sees it live. No emails. No screenshots. Pure musical flow.",
       teacherLabel: "Teacher",
@@ -352,7 +352,7 @@ const translations: Record<Language, Translations> = {
       studentName: "Alex Rivera",
       online: "Online",
       practicing: "Practicing",
-      screenshotAlt: "GrooveLab live session — teacher view",
+      screenshotAlt: "Drumion live session — teacher view",
     },
     features: {
       title: "Everything you need to grow",
@@ -385,7 +385,7 @@ const translations: Record<Language, Translations> = {
       ],
     },
     howItWorks: {
-      title: "How GrooveLab works",
+      title: "How Drumion works",
       subtitle: "From first note to live lesson in four simple steps.",
       steps: [
         {
@@ -542,10 +542,10 @@ const translations: Record<Language, Translations> = {
     },
     faq: {
       title: "Frequently asked questions",
-      subtitle: "Everything you need to know about GrooveLab.",
+      subtitle: "Everything you need to know about Drumion.",
       items: [
         {
-          question: "Can students use GrooveLab without a teacher?",
+          question: "Can students use Drumion without a teacher?",
           answer: "Absolutely. Many students use the Free and Pro plans independently to practice rudiments, build technique, and stay organized with the smart generator and advanced metronome.",
         },
         {
@@ -554,7 +554,7 @@ const translations: Record<Language, Translations> = {
         },
         {
           question: "Do I need special hardware or an app?",
-          answer: "GrooveLab runs in your browser on any device — no installation required.",
+          answer: "Drumion runs in your browser on any device — no installation required.",
         },
         {
           question: "Can I cancel or change plans anytime?",
@@ -571,7 +571,7 @@ const translations: Record<Language, Translations> = {
       product: "Product",
       resources: "Resources",
       company: "Company",
-      copyright: "© GrooveLab. All rights reserved.",
+      copyright: "© Drumion. All rights reserved.",
       madeFor: "Made for musicians who care about the craft.",
       links: {
         features: "Features",
@@ -612,7 +612,7 @@ const translations: Record<Language, Translations> = {
         switchToLogin: "Log in",
       },
       demo: {
-        title: "See GrooveLab in action",
+        title: "See Drumion in action",
         subtitle: "Watch how teachers and students stay perfectly in sync.",
         close: "Close",
         // 4B: disabled Play + localized stub
@@ -699,7 +699,7 @@ const translations: Record<Language, Translations> = {
       },
     },
     mainAdvantage: {
-      badge: "Главное преимущество GrooveLab",
+      badge: "Главное преимущество Drumion",
       title: "Реал-тайм связь между учителем и учеником",
       subtitle: "Как только преподаватель отправляет или редактирует упражнение — ученик сразу видит изменения. Без писем и скриншотов. Только чистый музыкальный поток.",
       teacherLabel: "Преподаватель",
@@ -728,7 +728,7 @@ const translations: Record<Language, Translations> = {
       studentName: "Alex Rivera",
       online: "В сети",
       practicing: "Занимается",
-      screenshotAlt: "GrooveLab live-сессия — вид преподавателя",
+      screenshotAlt: "Drumion live-сессия — вид преподавателя",
     },
     features: {
       title: "Всё необходимое для роста",
@@ -761,7 +761,7 @@ const translations: Record<Language, Translations> = {
       ],
     },
     howItWorks: {
-      title: "Как работает GrooveLab",
+      title: "Как работает Drumion",
       subtitle: "От первой ноты до живого урока — всего четыре шага.",
       steps: [
         {
@@ -918,10 +918,10 @@ const translations: Record<Language, Translations> = {
     },
     faq: {
       title: "Часто задаваемые вопросы",
-      subtitle: "Всё, что нужно знать о GrooveLab.",
+      subtitle: "Всё, что нужно знать о Drumion.",
       items: [
         {
-          question: "Можно ли пользоваться GrooveLab без преподавателя?",
+          question: "Можно ли пользоваться Drumion без преподавателя?",
           answer: "Конечно. Многие ученики используют бесплатный и Pro-тарифы самостоятельно, чтобы отрабатывать рудименты, развивать технику и систематизировать занятия с помощью генератора и метронома.",
         },
         {
@@ -930,7 +930,7 @@ const translations: Record<Language, Translations> = {
         },
         {
           question: "Нужно ли специальное оборудование или приложение?",
-          answer: "GrooveLab работает в браузере на любом устройстве — без установки.",
+          answer: "Drumion работает в браузере на любом устройстве — без установки.",
         },
         {
           question: "Можно ли отменить или сменить тариф в любой момент?",
@@ -947,7 +947,7 @@ const translations: Record<Language, Translations> = {
       product: "Продукт",
       resources: "Ресурсы",
       company: "Компания",
-      copyright: "© GrooveLab. Все права защищены.",
+      copyright: "© Drumion. Все права защищены.",
       madeFor: "Сделано для музыкантов, которым важно мастерство.",
       links: {
         features: "Возможности",
@@ -988,7 +988,7 @@ const translations: Record<Language, Translations> = {
         switchToLogin: "Войти",
       },
       demo: {
-        title: "Посмотри GrooveLab в действии",
+        title: "Посмотри Drumion в действии",
         subtitle: "Узнай, как учителя и ученики остаются идеально синхронизированными.",
         close: "Закрыть",
         // 4B: disabled Play + локализованная заглушка
@@ -1075,7 +1075,7 @@ const translations: Record<Language, Translations> = {
       },
     },
     mainAdvantage: {
-      badge: "La ventaja de GrooveLab",
+      badge: "La ventaja de Drumion",
       title: "Conexión en tiempo real entre profesor y alumno",
       subtitle: "En el momento en que un profesor envía o edita un ejercicio, el alumno lo ve en vivo. Sin correos. Sin capturas de pantalla. Flujo musical puro.",
       teacherLabel: "Profesor",
@@ -1104,7 +1104,7 @@ const translations: Record<Language, Translations> = {
       studentName: "Alex Rivera",
       online: "En línea",
       practicing: "Practicando",
-      screenshotAlt: "GrooveLab sesión en vivo — vista del profesor",
+      screenshotAlt: "Drumion sesión en vivo — vista del profesor",
     },
     features: {
       title: "Todo lo que necesitas para crecer",
@@ -1137,7 +1137,7 @@ const translations: Record<Language, Translations> = {
       ],
     },
     howItWorks: {
-      title: "Cómo funciona GrooveLab",
+      title: "Cómo funciona Drumion",
       subtitle: "Desde la primera nota hasta la lección en vivo en cuatro pasos sencillos.",
       steps: [
         {
@@ -1294,10 +1294,10 @@ const translations: Record<Language, Translations> = {
     },
     faq: {
       title: "Preguntas frecuentes",
-      subtitle: "Todo lo que necesitas saber sobre GrooveLab.",
+      subtitle: "Todo lo que necesitas saber sobre Drumion.",
       items: [
         {
-          question: "¿Pueden los estudiantes usar GrooveLab sin un profesor?",
+          question: "¿Pueden los estudiantes usar Drumion sin un profesor?",
           answer: "Absolutamente. Muchos estudiantes usan los planes Free y Pro de forma independiente para practicar rudimentos, desarrollar técnica y mantenerse organizados con el generador inteligente y el metrónomo avanzado.",
         },
         {
@@ -1306,7 +1306,7 @@ const translations: Record<Language, Translations> = {
         },
         {
           question: "¿Necesito hardware especial o una aplicación?",
-          answer: "GrooveLab funciona en tu navegador en cualquier dispositivo — sin necesidad de instalar nada.",
+          answer: "Drumion funciona en tu navegador en cualquier dispositivo — sin necesidad de instalar nada.",
         },
         {
           question: "¿Puedo cancelar o cambiar de plan en cualquier momento?",
@@ -1323,7 +1323,7 @@ const translations: Record<Language, Translations> = {
       product: "Producto",
       resources: "Recursos",
       company: "Compañía",
-      copyright: "© GrooveLab. Todos los derechos reservados.",
+      copyright: "© Drumion. Todos los derechos reservados.",
       madeFor: "Hecho para músicos a los que les importa el oficio.",
       links: {
         features: "Características",
@@ -1364,7 +1364,7 @@ const translations: Record<Language, Translations> = {
         switchToLogin: "Iniciar sesión",
       },
       demo: {
-        title: "Mira GrooveLab en acción",
+        title: "Mira Drumion en acción",
         subtitle: "Observa cómo profesores y alumnos permanecen perfectamente sincronizados.",
         close: "Cerrar",
         // 4B: disabled Play + localized stub
@@ -1416,7 +1416,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   // Restore saved language on mount (SSR default is 'en' in layout)
   useEffect(() => {
-    const saved = localStorage.getItem('groovelab-language') as Language | null;
+    const saved = localStorage.getItem('drumion-language') as Language | null;
     if (saved && ['en', 'ru', 'es'].includes(saved)) {
       setLanguageState(saved);
     }
@@ -1429,7 +1429,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
-    localStorage.setItem('groovelab-language', lang);
+    localStorage.setItem('drumion-language', lang);
     // Immediate update for responsiveness on switch; effect above also ensures consistency
     document.documentElement.lang = lang;
   };

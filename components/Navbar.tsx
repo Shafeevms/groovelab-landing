@@ -45,10 +45,10 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group">
           <div className="w-9 h-9 rounded-xl bg-[#a3e635] flex items-center justify-center">
-            <span className="text-[#0a0a0a] font-bold text-xl tracking-[-1px]">GL</span>
+            <span className="text-[#0a0a0a] font-bold text-xl tracking-[-1px]">D</span>
           </div>
           <div className="font-semibold text-2xl tracking-[-0.5px] text-white group-hover:text-[#a3e635] transition-colors">
-            GrooveLab
+            Drumion
           </div>
         </Link>
 
