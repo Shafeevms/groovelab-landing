@@ -1,99 +1,174 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import LegalPage from "@/components/LegalPage";
 
 export const metadata: Metadata = {
-  title: "Refund Policy — Drumion",
+    title: "Refund Policy — Drumion",
 };
 
+/**
+ * Refund Policy
+ * Updated to meet Paddle’s domain-review requirements:
+ * • mentions legal entity “GrooveLab”;
+ * • grants an unconditional 14-day refund window;
+ * • removes all extra qualifiers / case-by-case wording.
+ */
 export default function RefundPage() {
-  return (
-    <LegalPage title="Refund Policy" current="refund">
-      <p>
-        This Refund Policy explains how cancellations and refund requests are handled for Drumion subscriptions.
-        Drumion is a subscription-based web application for drummers, music teachers, and students. Payments are processed by Paddle, our payment provider and Merchant of Record.
-      </p>
+    return (
+        <LegalPage title="Refund Policy" current="refund">
+            <p>
+                This Refund Policy explains how cancellations and refund requests are handled for Drumion
+                subscriptions. Drumion is operated by <strong>GrooveLab</strong>, an Individual
+                Entrepreneur registered in Georgia. Payments are processed by Paddle, our payment provider
+                and Merchant of Record.
+            </p>
 
-      <h2 className="text-white text-2xl font-semibold tracking-[-0.5px] mt-8 mb-3">1. Monthly Subscriptions</h2>
-      <p>
-        All Drumion plans are billed monthly in advance.
-        Your subscription automatically renews each month unless you cancel it before the next billing date.
-        Prices are listed in USD. Applicable taxes may be added by Paddle at checkout depending on your location.
-      </p>
+            {/* ---------------------------------------------------------------- */}
+            {/* 1. 14-Day Refund Window                                         */}
+            {/* ---------------------------------------------------------------- */}
+            <h2 className="text-white text-2xl font-semibold tracking-[-0.5px] mt-8 mb-3">
+                1. 14-Day Refund Window
+            </h2>
+            <p>
+                In accordance with Paddle’s refund policy, you may request a full refund{" "}
+                <strong>within 14&nbsp;calendar&nbsp;days of the original purchase</strong>. No questions
+                asked.
+            </p>
+            <p>
+                After the 14-day period has elapsed, payments become non-refundable except where a refund is
+                required by applicable law.
+            </p>
 
-      <h2 className="text-white text-2xl font-semibold tracking-[-0.5px] mt-8 mb-3">2. Cancellation</h2>
-      <p>
-        You can cancel your subscription at any time.
-        After cancellation, you will continue to have access to your paid plan until the end of the current billing period. Your subscription will not renew after that period ends.
-        You can cancel your subscription through the available account or billing settings, or by contacting us at: <a href="mailto:support@drumion.app" className="text-[#a3e635] hover:underline">support@drumion.app</a>
-      </p>
+            {/* ---------------------------------------------------------------- */}
+            {/* 2. Monthly Subscriptions                                        */}
+            {/* ---------------------------------------------------------------- */}
+            <h2 className="text-white text-2xl font-semibold tracking-[-0.5px] mt-8 mb-3">
+                2. Monthly Subscriptions
+            </h2>
+            <p>
+                All Drumion plans are billed monthly in advance. Your subscription automatically renews each
+                month unless you cancel before the next billing date. Prices are listed in USD. Applicable
+                taxes may be added by Paddle at checkout depending on your location.
+            </p>
 
-      <h2 className="text-white text-2xl font-semibold tracking-[-0.5px] mt-8 mb-3">3. Refunds</h2>
-      <p>
-        Subscription payments are generally non-refundable once a billing period has started.
-        This means that if you cancel your subscription, you will usually keep access to the paid features until the end of the current billing period, but you will not automatically receive a refund for the unused part of that period.
-        However, we may consider refund requests on a case-by-case basis, especially where:
-      </p>
-      <ul className="list-disc pl-5 space-y-1.5 text-[#a1a1aa]">
-        <li>you were charged due to a technical error;</li>
-        <li>you were charged after a confirmed cancellation;</li>
-        <li>duplicate payments were made;</li>
-        <li>you were unable to access the service due to a problem caused by Drumion;</li>
-        <li>a refund is required by applicable law.</li>
-      </ul>
+            {/* ---------------------------------------------------------------- */}
+            {/* 3. Cancellation                                                 */}
+            {/* ---------------------------------------------------------------- */}
+            <h2 className="text-white text-2xl font-semibold tracking-[-0.5px] mt-8 mb-3">
+                3. Cancellation
+            </h2>
+            <p>
+                You can cancel your subscription at any time. After cancellation you retain access to paid
+                features until the end of the current billing period, and the subscription will not renew.
+                Cancel via your account settings or by emailing:&nbsp;
+                <a href="mailto:support@drumion.app" className="text-[#a3e635] hover:underline">
+                    support@drumion.app
+                </a>
+                .
+            </p>
 
-      <h2 className="text-white text-2xl font-semibold tracking-[-0.5px] mt-8 mb-3">4. How to Request a Refund</h2>
-      <p>
-        To request a refund, please contact us at: <a href="mailto:support@drumion.app" className="text-[#a3e635] hover:underline">support@drumion.app</a>
-      </p>
-      <p>Please include:</p>
-      <ul className="list-disc pl-5 space-y-1.5 text-[#a1a1aa]">
-        <li>the email address used for your Drumion account;</li>
-        <li>the email address used for payment, if different;</li>
-        <li>the subscription plan;</li>
-        <li>the date of the charge;</li>
-        <li>a short explanation of the refund request.</li>
-      </ul>
-      <p>
-        We may ask for additional information to verify the payment and review your request.
-      </p>
+            {/* ---------------------------------------------------------------- */}
+            {/* 4. How to Request a Refund                                      */}
+            {/* ---------------------------------------------------------------- */}
+            <h2 className="text-white text-2xl font-semibold tracking-[-0.5px] mt-8 mb-3">
+                4. How to Request a Refund
+            </h2>
+            <p>
+                Send an email to&nbsp;
+                <a href="mailto:support@drumion.app" className="text-[#a3e635] hover:underline">
+                    support@drumion.app
+                </a>{" "}
+                with:
+            </p>
+            <ul className="list-disc pl-5 space-y-1.5 text-[#a1a1aa]">
+                <li>the email used for the purchase;</li>
+                <li>payment reference / receipt number;</li>
+                <li>purchase date.</li>
+            </ul>
+            <p>We may request additional information to verify the payment.</p>
 
-      <h2 className="text-white text-2xl font-semibold tracking-[-0.5px] mt-8 mb-3">5. Paddle as Merchant of Record</h2>
-      <p>
-        Payments for Drumion are processed by Paddle, which acts as Merchant of Record.
-        This means Paddle is responsible for payment processing, tax calculation, tax collection, and tax remittance where applicable.
-        Refunds may be processed through Paddle and may appear on your bank or card statement as a refund from Paddle or a related Paddle billing descriptor.
-      </p>
+            {/* ---------------------------------------------------------------- */}
+            {/* 5. Paddle as Merchant of Record                                 */}
+            {/* ---------------------------------------------------------------- */}
+            <h2 className="text-white text-2xl font-semibold tracking-[-0.5px] mt-8 mb-3">
+                5. Paddle as Merchant of Record
+            </h2>
+            <p>
+                Payments and refunds are processed by Paddle. Refunds may appear on your statement as a
+                credit from Paddle or a related billing descriptor.
+            </p>
 
-      <h2 className="text-white text-2xl font-semibold tracking-[-0.5px] mt-8 mb-3">6. Processing Time</h2>
-      <p>
-        If a refund is approved, it will be processed through Paddle.
-        The time it takes for the refunded amount to appear in your account depends on your bank, card issuer, or payment method provider.
-        Refunds may take several business days to appear after they are processed.
-      </p>
+            {/* ---------------------------------------------------------------- */}
+            {/* 6. Processing Time                                              */}
+            {/* ---------------------------------------------------------------- */}
+            <h2 className="text-white text-2xl font-semibold tracking-[-0.5px] mt-8 mb-3">
+                6. Processing Time
+            </h2>
+            <p>
+                Once approved, refunds are issued through Paddle. The time it takes for funds to reach your
+                account depends on your bank, card issuer, or payment-method provider (typically a few
+                business days).
+            </p>
 
-      <h2 className="text-white text-2xl font-semibold tracking-[-0.5px] mt-8 mb-3">7. Taxes and Fees</h2>
-      <p>
-        If applicable taxes were charged on your purchase, the refunded amount may include the relevant tax amount, depending on Paddle&apos;s processing rules and applicable law.
-        Currency conversion differences, bank fees, or payment provider fees may be outside our control.
-      </p>
+            {/* ---------------------------------------------------------------- */}
+            {/* 7. Taxes and Fees                                               */}
+            {/* ---------------------------------------------------------------- */}
+            <h2 className="text-white text-2xl font-semibold tracking-[-0.5px] mt-8 mb-3">
+                7. Taxes and Fees
+            </h2>
+            <p>
+                If taxes were charged on your purchase, the refunded amount will include the relevant tax
+                portion according to Paddle’s processing rules and applicable law. Any currency-conversion
+                differences or bank fees are outside our control.
+            </p>
 
-      <h2 className="text-white text-2xl font-semibold tracking-[-0.5px] mt-8 mb-3">8. Failed Payments</h2>
-      <p>
-        If a subscription payment fails, Paddle may retry the payment or ask you to update your payment method.
-        If payment is not completed, access to paid features may be limited, suspended, or canceled.
-        Failed payment attempts do not create an active paid subscription unless the payment is successfully completed.
-      </p>
+            {/* ---------------------------------------------------------------- */}
+            {/* 8. Failed Payments                                              */}
+            {/* ---------------------------------------------------------------- */}
+            <h2 className="text-white text-2xl font-semibold tracking-[-0.5px] mt-8 mb-3">
+                8. Failed Payments
+            </h2>
+            <p>
+                If a subscription payment fails, Paddle may retry or ask you to update the payment method.
+                Access to paid features may be limited or suspended until payment is completed. Failed
+                payment attempts do not create an active paid subscription unless payment eventually
+                succeeds.
+            </p>
 
-      <h2 className="text-white text-2xl font-semibold tracking-[-0.5px] mt-8 mb-3">9. Changes to This Policy</h2>
-      <p>
-        We may update this Refund Policy from time to time.
-        If we make material changes, we will take reasonable steps to notify users, such as by updating the effective date, showing an in-app notice, or sending an email where appropriate.
-      </p>
+            {/* ---------------------------------------------------------------- */}
+            {/* 9. Changes to This Policy                                       */}
+            {/* ---------------------------------------------------------------- */}
+            <h2 className="text-white text-2xl font-semibold tracking-[-0.5px] mt-8 mb-3">
+                9. Changes to This Policy
+            </h2>
+            <p>
+                We may update this Refund Policy from time to time. If we make material changes, we will
+                notify users by updating the effective date, showing an in-app notice, or sending an email
+                where appropriate.
+            </p>
 
-      <h2 className="text-white text-2xl font-semibold tracking-[-0.5px] mt-8 mb-3">10. Contact</h2>
-      <p>
-        If you have any questions about cancellations or refunds, please contact us at: <a href="mailto:support@drumion.app" className="text-[#a3e635] hover:underline">support@drumion.app</a>
-      </p>
-    </LegalPage>
-  );
+            {/* ---------------------------------------------------------------- */}
+            {/* 10. Contact                                                     */}
+            {/* ---------------------------------------------------------------- */}
+            <h2 className="text-white text-2xl font-semibold tracking-[-0.5px] mt-8 mb-3">
+                10. Contact
+            </h2>
+            <p>
+                Questions about cancellations or refunds? Email&nbsp;
+                <a href="mailto:support@drumion.app" className="text-[#a3e635] hover:underline">
+                    support@drumion.app
+                </a>
+                .
+            </p>
+
+            {/* Link back to pricing / other legal pages if needed */}
+            <p className="mt-6">
+                See also our{" "}
+                <Link href="/pricing" className="text-[#a3e635] hover:underline">
+                    Pricing&nbsp;page
+                </Link>{" "}
+                for subscription information.
+            </p>
+        </LegalPage>
+    );
 }
