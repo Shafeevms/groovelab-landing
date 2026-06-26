@@ -29,18 +29,24 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
   const { consent, country } = useConsent();
 
   useEffect(() => {
+    console.log('[PostHog] useEffect fired, country:', country, 'consent:', consent);
+
     if (typeof window === 'undefined') return;
 
     const key = process.env.NEXT_PUBLIC_POSTHOG_KEY;
+    console.log('[PostHog] key:', key ? key.slice(0, 10) + '...' : 'MISSING');
     if (!key) return;
 
     const navDnt = (navigator as { doNotTrack?: string | null | undefined }).doNotTrack;
     const winDnt = (window as { doNotTrack?: string | null | undefined }).doNotTrack;
     const dnt = navDnt || winDnt;
+    console.log('[PostHog] DNT:', dnt);
     if (dnt === '1' || dnt === 'yes') return;
 
+    console.log('[PostHog] __loaded:', posthog.__loaded);
+
     if (!posthog.__loaded) {
-      // First init — always start opted-out, then reactively opt-in below
+      console.log('[PostHog] calling init...');
       posthog.init(key, {
         api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST || 'https://us.i.posthog.com',
         persistence: 'localStorage',
@@ -51,14 +57,18 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
         disable_session_recording: true,
         opt_out_capturing_by_default: true,
       });
+      console.log('[PostHog] init done, __loaded:', posthog.__loaded);
     }
 
-    // After init (or on subsequent renders when country/consent resolved):
-    // opt-in if region doesn't require consent OR user already granted
     const regionRequires = needsConsent(country);
+    console.log('[PostHog] regionRequires:', regionRequires, 'consent:', consent);
     if (!regionRequires || consent === 'granted') {
+      console.log('[PostHog] opting in...');
       if (!posthog.has_opted_in_capturing()) {
         posthog.opt_in_capturing();
+        console.log('[PostHog] opted in!');
+      } else {
+        console.log('[PostHog] already opted in');
       }
     }
   }, [country, consent]);
